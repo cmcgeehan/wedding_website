@@ -1,0 +1,7 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100%" height="100%" fill="#f1f5f9"/>
+  <rect x="10%" y="10%" width="80%" height="80%" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="50%" y="40%" text-anchor="middle" font-family="serif" font-size="32" fill="#475569">Casa De Bola</text>
+  <text x="50%" y="55%" text-anchor="middle" font-family="serif" font-size="20" fill="#64748b">Wedding Venue</text>
+  <text x="50%" y="70%" text-anchor="middle" font-family="serif" font-size="16" fill="#64748b">Mexico City</text>
+</svg> 
