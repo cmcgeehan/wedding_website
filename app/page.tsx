@@ -27,8 +27,8 @@ export default function HomePage() {
   }
 
   const handleWhatsAppJoin = () => {
-    // Replace with your actual WhatsApp group invite link
-    const whatsappLink = "https://wa.me/1234567890?text=Hi! I'd like to join the wedding WhatsApp group for updates and coordination."
+    // WhatsApp group invite link
+    const whatsappLink = "https://chat.whatsapp.com/EBLYskiMMT55VELRypOFyg"
     window.open(whatsappLink, '_blank')
   }
 
@@ -433,7 +433,7 @@ export default function HomePage() {
                 <div className="absolute -inset-4 bg-gradient-to-r from-[rgb(125,146,175)] to-[rgb(228,198,191)] rounded-3xl transform rotate-3 opacity-20"></div>
                 <div className="relative bg-white p-6 rounded-3xl shadow-2xl">
                   <Image
-                    src="/images/save-the-date.png"
+                    src="/images/carousel/IMG_2498.jpg"
                     alt="Our Save the Date Design"
                     width={400}
                     height={300}
@@ -656,7 +656,7 @@ export default function HomePage() {
                 <div className="absolute -inset-6 bg-gradient-to-r from-[rgb(228,198,191)] to-[rgb(224,241,231)] rounded-3xl transform -rotate-2 opacity-20"></div>
                 <div className="relative bg-white p-8 rounded-3xl shadow-2xl">
                   <Image
-                    src="/images/casa-de-bola.png"
+                    src="/images/weddingVenue.jpg"
                     alt="Casa De Bola - Our Wedding Venue"
                     width={600}
                     height={400}
@@ -791,16 +791,9 @@ export default function HomePage() {
                   <span className="text-white text-2xl">🍹</span>
                 </div>
                 <h3 className="text-xl font-serif text-[rgb(88,104,127)] mb-4">Best Bars</h3>
-                <p className="text-[rgb(88,104,127)] font-light mb-6">
+                <p className="text-[rgb(88,104,127)] font-light">
                   Our favorite spots for mezcal, cocktails, and late-night fun
                 </p>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="border-[rgb(88,104,127)] text-[rgb(88,104,127)] hover:bg-[rgb(88,104,127)] hover:text-white rounded-full font-light bg-transparent"
-                >
-                  View List
-                </Button>
               </div>
 
               <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-[rgb(228,198,191)]/30 text-center transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
@@ -808,16 +801,9 @@ export default function HomePage() {
                   <span className="text-white text-2xl">🌮</span>
                 </div>
                 <h3 className="text-xl font-serif text-[rgb(88,104,127)] mb-4">Restaurants</h3>
-                <p className="text-[rgb(88,104,127)] font-light mb-6">
+                <p className="text-[rgb(88,104,127)] font-light">
                   From street tacos to fine dining - our go-to spots
                 </p>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="border-[rgb(88,104,127)] text-[rgb(88,104,127)] hover:bg-[rgb(88,104,127)] hover:text-white rounded-full font-light bg-transparent"
-                >
-                  View List
-                </Button>
               </div>
 
               <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-[rgb(228,198,191)]/30 text-center transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
@@ -825,16 +811,9 @@ export default function HomePage() {
                   <span className="text-white text-2xl">🎨</span>
                 </div>
                 <h3 className="text-xl font-serif text-[rgb(88,104,127)] mb-4">Museums</h3>
-                <p className="text-[rgb(88,104,127)] font-light mb-6">
+                <p className="text-[rgb(88,104,127)] font-light">
                   Art, history, and culture - the best Mexico City has to offer
                 </p>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="border-[rgb(88,104,127)] text-[rgb(88,104,127)] hover:bg-[rgb(88,104,127)] hover:text-white rounded-full font-light bg-transparent"
-                >
-                  View List
-                </Button>
               </div>
 
               <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-[rgb(228,198,191)]/30 text-center transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
@@ -842,14 +821,7 @@ export default function HomePage() {
                   <span className="text-white text-2xl">✨</span>
                 </div>
                 <h3 className="text-xl font-serif text-[rgb(88,104,127)] mb-4">Experiences</h3>
-                <p className="text-[rgb(88,104,127)] font-light mb-6">Unique activities and hidden gems we love</p>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="border-[rgb(88,104,127)] text-[rgb(88,104,127)] hover:bg-[rgb(88,104,127)] hover:text-white rounded-full font-light bg-transparent"
-                >
-                  View List
-                </Button>
+                <p className="text-[rgb(88,104,127)] font-light">Unique activities and hidden gems we love</p>
               </div>
             </div>
 
