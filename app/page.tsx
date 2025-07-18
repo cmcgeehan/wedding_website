@@ -9,7 +9,6 @@ export default function HomePage() {
   const [currentScene, setCurrentScene] = useState("landing")
   const [isLoaded, setIsLoaded] = useState(false)
   const [hoveredRow, setHoveredRow] = useState<string | null>(null)
-  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set())
 
   useEffect(() => {
     setIsLoaded(true)
@@ -33,11 +32,6 @@ export default function HomePage() {
     window.open(whatsappLink, '_blank')
   }
 
-  // Helper function to get animation class based on hover state
-  const getAnimationClass = (rowId: string, baseAnimation: string) => {
-    return baseAnimation
-  }
-
   // Helper function to get animation style based on hover state
   const getAnimationStyle = (rowId: string) => {
     return {
@@ -48,7 +42,6 @@ export default function HomePage() {
   // Helper function to handle image loading
   const handleImageLoad = (src: string) => {
     console.log(`Successfully loaded image: ${src}`);
-    setLoadedImages(prev => new Set(prev).add(src));
   }
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>, src: string) => {
@@ -637,7 +630,7 @@ export default function HomePage() {
 
         <div className="text-center mt-12">
           <p className="text-[rgb(125,146,175)] font-light italic">
-            "Not all who wander are lost" - and we've wandered quite a bit together
+            &ldquo;Not all who wander are lost&rdquo; - and we&apos;ve wandered quite a bit together
           </p>
         </div>
       </section>
