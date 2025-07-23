@@ -8,6 +8,26 @@ import { Button } from "@/components/ui/button"
 export default function HomePage() {
   const [currentScene, setCurrentScene] = useState("landing")
   const [isLoaded, setIsLoaded] = useState(false)
+  const [hoveredRow, setHoveredRow] = useState<string | null>(null)
+
+  // Helper function to get animation style based on hover state
+  const getAnimationStyle = (rowId: string) => {
+    return {
+      animationPlayState: hoveredRow === rowId ? 'paused' : 'running'
+    }
+  }
+
+  // Helper function to handle image loading
+  const handleImageLoad = (src: string) => {
+    console.log(`Successfully loaded image: ${src}`);
+  }
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>, src: string) => {
+    console.error(`Failed to load image: ${src}`);
+    // For Next.js Image component, we can't directly set src, but the error is logged
+  }
+
+  
 
   useEffect(() => {
     setIsLoaded(true)
@@ -24,6 +44,7 @@ export default function HomePage() {
   const handleEnterWedding = () => {
     setCurrentScene("welcome")
   }
+  
 
   if (currentScene === "landing") {
     return (
@@ -417,7 +438,7 @@ export default function HomePage() {
                 <div className="absolute -inset-4 bg-gradient-to-r from-[rgb(125,146,175)] to-[rgb(228,198,191)] rounded-3xl transform rotate-3 opacity-20"></div>
                 <div className="relative bg-white p-6 rounded-3xl shadow-2xl">
                   <Image
-                    src="/images/save-the-date.png"
+                    src="/images/carousel/IMG_2498.jpg"
                     alt="Our Save the Date Design"
                     width={400}
                     height={300}
@@ -442,19 +463,31 @@ export default function HomePage() {
         </div>
 
         {/* Infinite Horizontal Scroll - Collage Style */}
-        <div className="relative h-[600px]">
+        <div className="relative h-[900px] overflow-hidden">
           {/* Row 1 - Top */}
-          <div className="absolute top-0 flex animate-scroll-slow space-x-8">
+          <div 
+            className={`absolute top-0 flex animate-scroll-slow`}
+            style={getAnimationStyle('row1')}
+            onMouseEnter={() => setHoveredRow('row1')}
+            onMouseLeave={() => setHoveredRow(null)}
+          >
             <div className="flex space-x-8 shrink-0">
               {[
-                { src: "/placeholder.svg?height=250&width=350", alt: "Beach sunset in Tulum", size: "large" },
-                { src: "/placeholder.svg?height=200&width=200", alt: "Street art in Mexico City", size: "square" },
-                { src: "/placeholder.svg?height=300&width=240", alt: "Mountain hiking adventure", size: "tall" },
-                { src: "/placeholder.svg?height=180&width=280", alt: "Local market exploration", size: "wide" },
-                { src: "/placeholder.svg?height=220&width=220", alt: "Rooftop dinner", size: "square" },
-                { src: "/placeholder.svg?height=280&width=200", alt: "Cathedral visit", size: "tall" },
-                { src: "/placeholder.svg?height=200&width=320", alt: "Beach day", size: "wide" },
-                { src: "/placeholder.svg?height=240&width=240", alt: "Coffee shop moment", size: "square" },
+                { src: "/images/carousel/CA861E7D-0C70-4710-ADB6-E62A2FBEA9CE.JPEG", alt: "Our adventures together", size: "large" },
+                { src: "/images/carousel/CB07FF00-F7F1-4BE6-B788-FC282CEF2916.JPG", alt: "Beautiful moments captured", size: "square" },
+                { src: "/images/carousel/FullSizeRender.JPG", alt: "Exploring new places", size: "tall" },
+                { src: "/images/carousel/IMG_0006.JPG", alt: "Travel memories", size: "wide" },
+                { src: "/images/carousel/IMG_0030.JPG", alt: "Special moments", size: "square" },
+                { src: "/images/carousel/IMG_1323.JPG", alt: "Memorable", size: "tall" },
+                { src: "/images/carousel/IMG_0261.JPG", alt: "Memories made", size: "square" },
+                { src: "/images/carousel/IMG_0382.JPG", alt: "Fun times", size: "square" },
+                { src: "/images/carousel/IMG_0570.JPG", alt: "Exploring", size: "tall" },
+                { src: "/images/carousel/IMG_0587.JPG", alt: "Travel", size: "tall" },
+                { src: "/images/carousel/IMG_0612.JPG", alt: "Special moments", size: "tall" },
+                { src: "/images/carousel/IMG_0709.JPG", alt: "Special", size: "square" },
+                { src: "/images/carousel/IMG_0957.JPG", alt: "Scenic overlook", size: "wide" },
+                { src: "/images/carousel/IMG_0758.JPG", alt: "Memorable", size: "tall" },
+                { src: "/images/carousel/IMG_08183.JPG", alt: "Beautiful", size: "square" },
               ].map((photo, index) => (
                 <div key={index} className="relative group shrink-0">
                   <div
@@ -480,49 +513,9 @@ export default function HomePage() {
                           photo.size === "large" ? 250 : photo.size === "wide" ? 200 : photo.size === "tall" ? 300 : 220
                         }
                         className="w-full h-full object-cover rounded-xl"
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Duplicate for seamless loop */}
-            <div className="flex space-x-8 shrink-0">
-              {[
-                { src: "/placeholder.svg?height=250&width=350", alt: "Beach sunset in Tulum", size: "large" },
-                { src: "/placeholder.svg?height=200&width=200", alt: "Street art in Mexico City", size: "square" },
-                { src: "/placeholder.svg?height=300&width=240", alt: "Mountain hiking adventure", size: "tall" },
-                { src: "/placeholder.svg?height=180&width=280", alt: "Local market exploration", size: "wide" },
-                { src: "/placeholder.svg?height=220&width=220", alt: "Rooftop dinner", size: "square" },
-                { src: "/placeholder.svg?height=280&width=200", alt: "Cathedral visit", size: "tall" },
-                { src: "/placeholder.svg?height=200&width=320", alt: "Beach day", size: "wide" },
-                { src: "/placeholder.svg?height=240&width=240", alt: "Coffee shop moment", size: "square" },
-              ].map((photo, index) => (
-                <div key={`dup1-${index}`} className="relative group shrink-0">
-                  <div
-                    className={`bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-xl ${
-                      photo.size === "large"
-                        ? "w-[350px] h-[250px]"
-                        : photo.size === "square"
-                          ? "w-[220px] h-[220px]"
-                          : photo.size === "tall"
-                            ? "w-[240px] h-[300px]"
-                            : "w-[320px] h-[200px]" // wide
-                    }`}
-                  >
-                    <div className="absolute -inset-1 bg-gradient-to-r from-[rgb(125,146,175)] to-[rgb(228,198,191)] rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity"></div>
-                    <div className="relative bg-white p-3 rounded-2xl h-full">
-                      <Image
-                        src={photo.src || "/placeholder.svg"}
-                        alt={photo.alt}
-                        width={
-                          photo.size === "large" ? 350 : photo.size === "wide" ? 320 : photo.size === "tall" ? 240 : 220
-                        }
-                        height={
-                          photo.size === "large" ? 250 : photo.size === "wide" ? 200 : photo.size === "tall" ? 300 : 220
-                        }
-                        className="w-full h-full object-cover rounded-xl"
+                        loading="lazy"
+                        onLoad={() => handleImageLoad(photo.src)}
+                        onError={(e) => handleImageError(e, photo.src)}
                       />
                     </div>
                   </div>
@@ -532,17 +525,31 @@ export default function HomePage() {
           </div>
 
           {/* Row 2 - Middle (offset and different speed) */}
-          <div className="absolute top-[180px] flex animate-scroll-medium space-x-6">
+          <div 
+            className={`absolute top-[300px] flex animate-scroll-medium`}
+            style={getAnimationStyle('row2')}
+            onMouseEnter={() => setHoveredRow('row2')}
+            onMouseLeave={() => setHoveredRow(null)}
+          >
             <div className="flex space-x-6 shrink-0">
               {[
-                { src: "/placeholder.svg?height=200&width=300", alt: "Cooking class together", size: "wide" },
-                { src: "/placeholder.svg?height=280&width=200", alt: "Museum visit", size: "tall" },
-                { src: "/placeholder.svg?height=180&width=180", alt: "Sunset drinks", size: "square" },
-                { src: "/placeholder.svg?height=220&width=340", alt: "Road trip adventure", size: "large" },
-                { src: "/placeholder.svg?height=260&width=200", alt: "Historic site", size: "tall" },
-                { src: "/placeholder.svg?height=200&width=200", alt: "Local festival", size: "square" },
-                { src: "/placeholder.svg?height=180&width=300", alt: "Beach walk", size: "wide" },
-                { src: "/placeholder.svg?height=240&width=180", alt: "City exploration", size: "tall" },
+                { src: "/images/carousel/IMG_0256.JPG", alt: "Beautiful destinations", size: "wide" },
+                { src: "/images/carousel/IMG_2122.JPG", alt: "Museum visit", size: "tall" },
+                { src: "/images/carousel/IMG_2722.JPG", alt: "Road trip adventure", size: "large" },
+                { src: "/images/carousel/IMG_3705.JPG", alt: "Historic site", size: "tall" },
+                { src: "/images/carousel/IMG_0983.JPG", alt: "Boat ride", size: "tall" },
+                { src: "/images/carousel/IMG_1030.JPG", alt: "Art gallery", size: "tall" },
+                { src: "/images/carousel/IMG_7970.JPG", alt: "Local festival", size: "square" },
+                { src: "/images/carousel/IMG_2363.JPG", alt: "City exploration", size: "tall" },
+                { src: "/images/carousel/IMG_1879.JPG", alt: "Memories", size: "square" },
+                { src: "/images/carousel/IMG_1279.JPG", alt: "Special", size: "square" },
+                { src: "/images/carousel/IMG_9137.JPG", alt: "Another adventure", size: "large" },
+                { src: "/images/carousel/IMG_2298.JPG", alt: "Fun times", size: "square" },
+                { src: "/images/carousel/IMG_2283.JPG", alt: "Exploring", size: "tall" },
+                { src: "/images/carousel/IMG_2168.JPG", alt: "Special", size: "square" },
+                { src: "/images/carousel/IMG_2875.JPG", alt: "Memorable", size: "tall" },
+                { src: "/images/carousel/IMG_3186.JPG", alt: "Memories", size: "square" },
+                { src: "/images/carousel/IMG_6900.JPG", alt: "Memories", size: "square" },
               ].map((photo, index) => (
                 <div key={index} className="relative group shrink-0">
                   <div
@@ -568,135 +575,9 @@ export default function HomePage() {
                           photo.size === "large" ? 220 : photo.size === "wide" ? 180 : photo.size === "tall" ? 280 : 200
                         }
                         className="w-full h-full object-cover rounded-xl"
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Duplicate for seamless loop */}
-            <div className="flex space-x-6 shrink-0">
-              {[
-                { src: "/placeholder.svg?height=200&width=300", alt: "Cooking class together", size: "wide" },
-                { src: "/placeholder.svg?height=280&width=200", alt: "Museum visit", size: "tall" },
-                { src: "/placeholder.svg?height=180&width=180", alt: "Sunset drinks", size: "square" },
-                { src: "/placeholder.svg?height=220&width=340", alt: "Road trip adventure", size: "large" },
-                { src: "/placeholder.svg?height=260&width=200", alt: "Historic site", size: "tall" },
-                { src: "/placeholder.svg?height=200&width=200", alt: "Local festival", size: "square" },
-                { src: "/placeholder.svg?height=180&width=300", alt: "Beach walk", size: "wide" },
-                { src: "/placeholder.svg?height=240&width=180", alt: "City exploration", size: "tall" },
-              ].map((photo, index) => (
-                <div key={index} className="relative group shrink-0">
-                  <div
-                    className={`bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-xl ${
-                      photo.size === "large"
-                        ? "w-[340px] h-[220px]"
-                        : photo.size === "square"
-                          ? "w-[200px] h-[200px]"
-                          : photo.size === "tall"
-                            ? "w-[200px] h-[280px]"
-                            : "w-[300px] h-[180px]" // wide
-                    }`}
-                  >
-                    <div className="absolute -inset-1 bg-gradient-to-r from-[rgb(228,198,191)] to-[rgb(125,146,175)] rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity"></div>
-                    <div className="relative bg-white p-3 rounded-2xl h-full">
-                      <Image
-                        src={photo.src || "/placeholder.svg"}
-                        alt={photo.alt}
-                        width={
-                          photo.size === "large" ? 340 : photo.size === "wide" ? 300 : photo.size === "tall" ? 200 : 200
-                        }
-                        height={
-                          photo.size === "large" ? 220 : photo.size === "wide" ? 180 : photo.size === "tall" ? 280 : 200
-                        }
-                        className="w-full h-full object-cover rounded-xl"
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Duplicate for seamless loop */}
-            <div className="flex space-x-6 shrink-0">
-              {[
-                { src: "/placeholder.svg?height=200&width=300", alt: "Cooking class together", size: "wide" },
-                { src: "/placeholder.svg?height=280&width=200", alt: "Museum visit", size: "tall" },
-                { src: "/placeholder.svg?height=180&width=180", alt: "Sunset drinks", size: "square" },
-                { src: "/placeholder.svg?height=220&width=340", alt: "Road trip adventure", size: "large" },
-                { src: "/placeholder.svg?height=260&width=200", alt: "Historic site", size: "tall" },
-                { src: "/placeholder.svg?height=200&width=200", alt: "Local festival", size: "square" },
-                { src: "/placeholder.svg?height=180&width=300", alt: "Beach walk", size: "wide" },
-                { src: "/placeholder.svg?height=240&width=180", alt: "City exploration", size: "tall" },
-              ].map((photo, index) => (
-                <div key={index} className="relative group shrink-0">
-                  <div
-                    className={`bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-xl ${
-                      photo.size === "large"
-                        ? "w-[340px] h-[220px]"
-                        : photo.size === "square"
-                          ? "w-[200px] h-[200px]"
-                          : photo.size === "tall"
-                            ? "w-[200px] h-[280px]"
-                            : "w-[300px] h-[180px]" // wide
-                    }`}
-                  >
-                    <div className="absolute -inset-1 bg-gradient-to-r from-[rgb(228,198,191)] to-[rgb(125,146,175)] rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity"></div>
-                    <div className="relative bg-white p-3 rounded-2xl h-full">
-                      <Image
-                        src={photo.src || "/placeholder.svg"}
-                        alt={photo.alt}
-                        width={
-                          photo.size === "large" ? 340 : photo.size === "wide" ? 300 : photo.size === "tall" ? 200 : 200
-                        }
-                        height={
-                          photo.size === "large" ? 220 : photo.size === "wide" ? 180 : photo.size === "tall" ? 280 : 200
-                        }
-                        className="w-full h-full object-cover rounded-xl"
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Duplicate for seamless loop */}
-            <div className="flex space-x-6 shrink-0">
-              {[
-                { src: "/placeholder.svg?height=200&width=300", alt: "Cooking class together", size: "wide" },
-                { src: "/placeholder.svg?height=280&width=200", alt: "Museum visit", size: "tall" },
-                { src: "/placeholder.svg?height=180&width=180", alt: "Sunset drinks", size: "square" },
-                { src: "/placeholder.svg?height=220&width=340", alt: "Road trip adventure", size: "large" },
-                { src: "/placeholder.svg?height=260&width=200", alt: "Historic site", size: "tall" },
-                { src: "/placeholder.svg?height=200&width=200", alt: "Local festival", size: "square" },
-                { src: "/placeholder.svg?height=180&width=300", alt: "Beach walk", size: "wide" },
-                { src: "/placeholder.svg?height=240&width=180", alt: "City exploration", size: "tall" },
-              ].map((photo, index) => (
-                <div key={`dup2-${index}`} className="relative group shrink-0">
-                  <div
-                    className={`bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-xl ${
-                      photo.size === "large"
-                        ? "w-[340px] h-[220px]"
-                        : photo.size === "square"
-                          ? "w-[200px] h-[200px]"
-                          : photo.size === "tall"
-                            ? "w-[200px] h-[280px]"
-                            : "w-[300px] h-[180px]" // wide
-                    }`}
-                  >
-                    <div className="absolute -inset-1 bg-gradient-to-r from-[rgb(228,198,191)] to-[rgb(125,146,175)] rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity"></div>
-                    <div className="relative bg-white p-3 rounded-2xl h-full">
-                      <Image
-                        src={photo.src || "/placeholder.svg"}
-                        alt={photo.alt}
-                        width={
-                          photo.size === "large" ? 340 : photo.size === "wide" ? 300 : photo.size === "tall" ? 200 : 200
-                        }
-                        height={
-                          photo.size === "large" ? 220 : photo.size === "wide" ? 180 : photo.size === "tall" ? 280 : 200
-                        }
-                        className="w-full h-full object-cover rounded-xl"
+                        loading="lazy"
+                        onLoad={() => handleImageLoad(photo.src)}
+                        onError={(e) => handleImageError(e, photo.src)}
                       />
                     </div>
                   </div>
@@ -706,17 +587,31 @@ export default function HomePage() {
           </div>
 
           {/* Row 3 - Bottom (different speed again) */}
-          <div className="absolute top-[380px] flex animate-scroll-fast space-x-7">
+          <div 
+            className={`absolute top-[600px] flex animate-scroll-fast`}
+            style={getAnimationStyle('row3')}
+            onMouseEnter={() => setHoveredRow('row3')}
+            onMouseLeave={() => setHoveredRow(null)}
+          >
             <div className="flex space-x-7 shrink-0">
               {[
-                { src: "/placeholder.svg?height=190&width=190", alt: "Morning coffee", size: "square" },
-                { src: "/placeholder.svg?height=240&width=320", alt: "Scenic overlook", size: "wide" },
-                { src: "/placeholder.svg?height=270&width=210", alt: "Architecture tour", size: "tall" },
-                { src: "/placeholder.svg?height=200&width=200", alt: "Local cuisine", size: "square" },
-                { src: "/placeholder.svg?height=180&width=280", alt: "Boat ride", size: "wide" },
-                { src: "/placeholder.svg?height=250&width=190", alt: "Art gallery", size: "tall" },
-                { src: "/placeholder.svg?height=210&width=310", alt: "Garden stroll", size: "wide" },
-                { src: "/placeholder.svg?height=220&width=220", alt: "Evening lights", size: "square" },
+                { src: "/images/carousel/IMG_0825.JPG", alt: "Morning coffee", size: "square" },
+                { src: "/images/carousel/IMG_0231.JPG", alt: "Adventure awaits", size: "tall" },
+                { src: "/images/carousel/IMG_3925.JPG", alt: "Sunset drinks", size: "square" },
+                { src: "/images/carousel/IMG_0961.JPG", alt: "Architecture tour", size: "tall" },
+                { src: "/images/carousel/IMG_0978.JPG", alt: "Local cuisine", size: "square" },
+                { src: "/images/carousel/IMG_1061.JPG", alt: "Garden stroll", size: "wide" },
+                { src: "/images/carousel/IMG_3753.JPG", alt: "Beautiful", size: "tall" },
+                { src: "/images/carousel/IMG_1080.JPG", alt: "Evening lights", size: "square" },
+                { src: "/images/carousel/IMG_1177.JPG", alt: "Another adventure", size: "large" },
+                { src: "/images/carousel/IMG_1203.JPG", alt: "Fun times", size: "square" },
+                { src: "/images/carousel/IMG_2498.jpg", alt: "Beach walk", size: "wide" },
+                { src: "/images/carousel/IMG_1220.JPG", alt: "Exploring", size: "tall" },
+                { src: "/images/carousel/IMG_1229.JPG", alt: "Travel", size: "wide" },
+                { src: "/images/carousel/PNGimage.png", alt: "Cooking class together", size: "wide" },
+                { src: "/images/carousel/IMG_1432.JPG", alt: "Beautiful", size: "wide" },
+                { src: "/images/carousel/IMG_0266.JPG", alt: "Another adventure", size: "square" },
+                { src: "/images/carousel/IMG_1966.JPG", alt: "Memories", size: "square" },
               ].map((photo, index) => (
                 <div key={index} className="relative group shrink-0">
                   <div
@@ -736,43 +631,9 @@ export default function HomePage() {
                         width={photo.size === "square" ? 210 : photo.size === "tall" ? 210 : 310}
                         height={photo.size === "square" ? 210 : photo.size === "tall" ? 270 : 190}
                         className="w-full h-full object-cover rounded-xl"
-                      />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Duplicate for seamless loop */}
-            <div className="flex space-x-7 shrink-0">
-              {[
-                { src: "/placeholder.svg?height=190&width=190", alt: "Morning coffee", size: "square" },
-                { src: "/placeholder.svg?height=240&width=320", alt: "Scenic overlook", size: "wide" },
-                { src: "/placeholder.svg?height=270&width=210", alt: "Architecture tour", size: "tall" },
-                { src: "/placeholder.svg?height=200&width=200", alt: "Local cuisine", size: "square" },
-                { src: "/placeholder.svg?height=180&width=280", alt: "Boat ride", size: "wide" },
-                { src: "/placeholder.svg?height=250&width=190", alt: "Art gallery", size: "tall" },
-                { src: "/placeholder.svg?height=210&width=310", alt: "Garden stroll", size: "wide" },
-                { src: "/placeholder.svg?height=220&width=220", alt: "Evening lights", size: "square" },
-              ].map((photo, index) => (
-                <div key={`dup3-${index}`} className="relative group shrink-0">
-                  <div
-                    className={`bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-xl ${
-                      photo.size === "square"
-                        ? "w-[210px] h-[210px]"
-                        : photo.size === "tall"
-                          ? "w-[210px] h-[270px]"
-                          : "w-[310px] h-[190px]" // wide
-                    }`}
-                  >
-                    <div className="absolute -inset-1 bg-gradient-to-r from-[rgb(125,146,175)] to-[rgb(242,230,229)] rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity"></div>
-                    <div className="relative bg-white p-3 rounded-2xl h-full">
-                      <Image
-                        src={photo.src || "/placeholder.svg"}
-                        alt={photo.alt}
-                        width={photo.size === "square" ? 210 : photo.size === "tall" ? 210 : 310}
-                        height={photo.size === "square" ? 210 : photo.size === "tall" ? 270 : 190}
-                        className="w-full h-full object-cover rounded-xl"
+                        loading="lazy"
+                        onLoad={() => handleImageLoad(photo.src)}
+                        onError={(e) => handleImageError(e, photo.src)}
                       />
                     </div>
                   </div>
@@ -814,8 +675,8 @@ export default function HomePage() {
                 <div className="absolute -inset-6 bg-gradient-to-r from-[rgb(228,198,191)] to-[rgb(224,241,231)] rounded-3xl transform -rotate-2 opacity-20"></div>
                 <div className="relative bg-white p-8 rounded-3xl shadow-2xl">
                   <Image
-                    src="/images/casa-de-bola.png"
-                    alt="Casa De Bola - Our Wedding Venue"
+                    src="/images/weddingVenue.jpg"
+                    alt="Our Wedding Venue"
                     width={600}
                     height={400}
                     className="rounded-2xl w-full h-auto"
@@ -841,15 +702,7 @@ export default function HomePage() {
                   </p>
                 </div>
 
-                <div className="pt-8">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-white text-white hover:bg-white hover:text-[rgb(88,104,127)] px-8 py-3 rounded-full font-light tracking-wide bg-transparent"
-                  >
-                    Explore the Venue
-                  </Button>
-                </div>
+
               </div>
             </div>
           </div>
@@ -1030,7 +883,8 @@ export default function HomePage() {
               <div className="space-y-6">
                 <Button
                   size="lg"
-                  className="bg-gradient-to-r from-[rgb(88,104,127)] to-[rgb(125,146,175)] hover:from-[rgb(125,146,175)] hover:to-[rgb(88,104,127)] text-white px-12 py-4 rounded-full text-lg shadow-xl transform hover:scale-105 transition-all duration-300 mr-4"
+                  disabled
+                  className="bg-gray-400 text-gray-600 px-12 py-4 rounded-full text-lg shadow-xl mr-4 cursor-not-allowed opacity-50"
                 >
                   Save Your Seat
                 </Button>

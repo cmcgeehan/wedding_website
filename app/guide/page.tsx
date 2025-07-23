@@ -22,7 +22,7 @@ export default function GuidePage() {
       neighborhood: "Condesa",
       description: "Our best value pick! In a beautiful home with a large koi pond",
       highlights: ["Michelin-Guide"],
-      priceRange: "$$",
+      priceRange: "$$$",
       image: "/images/guide/botanico.jpg",
       favorite: false,
     },
@@ -52,7 +52,7 @@ export default function GuidePage() {
       neighborhood: "Polanco",
       description: "Great sushi where you can watch the tuna carving",
       highlights: ["Tuna carving"],
-      priceRange: "$$$",
+      priceRange: "$$$$",
       image: "/images/guide/ryoshi.png",
       favorite: false
     },
@@ -62,7 +62,7 @@ export default function GuidePage() {
       neighborhood: "Lomas",
       description: "Cosmopolitan restaurant & bar specializing in imaginative cocktails & elevated traditional cuisine.",
       highlights: ["Authentic Mexican Food"],
-      priceRange: "$$$",
+      priceRange: "$$$$",
       image: "/images/guide/carmela-y-sal.webp",
       favorite: false
     },
@@ -161,7 +161,7 @@ export default function GuidePage() {
       neighborhood: "Roma Norte",
       description: "Artisanal pizza spot with creative toppings and a great wine selection",
       highlights: ["Date night vibe"],
-      priceRange: "$$",
+      priceRange: "$$$",
       image: "/images/guide/pizza-felix.jpg",
       favorite: true
     },
