@@ -95,6 +95,15 @@ export default function TravelPage() {
           {/* Flights Section */}
           <section id="flights" className="space-y-12 py-16 px-6 bg-gradient-to-r from-[rgb(242,230,229)] to-[rgb(125,146,175)] -mx-6 rounded-3xl">
             <div className="text-center mb-12">
+              <div className="flex justify-center mb-6">
+                <Image
+                  src="/favicon.png"
+                  alt="Wedding Logo"
+                  width={80}
+                  height={80}
+                  className="rounded-full shadow-lg"
+                />
+              </div>
               <h2 className="font-serif text-5xl text-[rgb(88,104,127)] mb-4 font-light">Getting to Mexico City</h2>
               <p className="text-lg text-[rgb(125,146,175)] font-light">
                 Important flight information for your journey

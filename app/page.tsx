@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Plane, MapPin, Calendar, Heart, Users, SparklesIcon as Champagne, Music, Navigation } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -120,6 +121,15 @@ export default function HomePage() {
               className={`transform transition-all duration-2000 ${isLoaded ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
             >
               <div className="mb-8">
+                <div className="flex justify-center mb-6">
+                  <Image
+                    src="/favicon.png"
+                    alt="Wedding Logo"
+                    width={60}
+                    height={60}
+                    className="rounded-full shadow-lg"
+                  />
+                </div>
                 <h1 className="text-4xl font-serif mb-4">Welcome to Mexico City</h1>
                 <p className="text-xl font-light opacity-90 mb-8">
                   You&apos;ve arrived at Gaby & Conor&apos;s wedding destination
@@ -288,7 +298,13 @@ export default function HomePage() {
               <div className="mb-12">
                 <div className="inline-flex items-center space-x-4 mb-8">
                   <div className="w-px h-12 bg-white/50"></div>
-                  <Plane className="h-8 w-8" />
+                  <Image
+                    src="/favicon.png"
+                    alt="Wedding Logo"
+                    width={32}
+                    height={32}
+                    className="rounded-full shadow-lg"
+                  />
                   <div className="w-px h-12 bg-white/50"></div>
                 </div>
                 <h1 className="font-serif text-8xl md:text-9xl mb-6 font-light tracking-wide">
@@ -838,12 +854,14 @@ export default function HomePage() {
               <p className="text-[rgb(88,104,127)] font-light mb-6">
                 We&apos;ll be sharing more detailed recommendations and insider tips soon!
               </p>
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-[rgb(88,104,127)] to-[rgb(125,146,175)] hover:from-[rgb(125,146,175)] hover:to-[rgb(88,104,127)] text-white px-12 py-4 rounded-full text-lg shadow-xl transform hover:scale-105 transition-all duration-300"
-              >
-                Get Our Complete Mexico City Guide
-              </Button>
+              <Link href="/guide">
+                <Button
+                  size="lg"
+                  className="bg-gradient-to-r from-[rgb(88,104,127)] to-[rgb(125,146,175)] hover:from-[rgb(125,146,175)] hover:to-[rgb(88,104,127)] text-white px-12 py-4 rounded-full text-lg shadow-xl transform hover:scale-105 transition-all duration-300"
+                >
+                  Get Our Complete Mexico City Guide
+                </Button>
+              </Link>
               {/* WhatsApp Updates Section */}
             </div>
           </div>

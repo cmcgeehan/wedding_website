@@ -244,7 +244,7 @@ export default function GuidePage() {
       neighborhood: "Roma Norte & Polanco",
       description: "Award-winning cocktail bar consistently ranked among the world's best",
       highlights: ["World's 50 Best Bars", "Creative cocktails"],
-      image: "/placeholder.svg?height=200&width=300&text=Limantour+Bar",
+      image: "/images/guide/limantour.jpg",
     },
     {
       name: "Terraza Cha Cha Cha",
@@ -252,7 +252,7 @@ export default function GuidePage() {
       neighborhood: "Roma Norte",
       description: "Rooftop bar with a great view of the monument.",
       highlights: ["Great view", "Good music"],
-      image: "/placeholder.svg?height=200&width=300&text=Licoreria+Limantour",
+      image: "/images/guide/terraza-cha-cha-cha.jpg",
     },
     {
       name: "Salon Rosetta",
@@ -260,7 +260,7 @@ export default function GuidePage() {
       neighborhood: "Roma Norte",
       description: "Above Rosetta, a small bar with great drinks",
       highlights: ["Creative cocktails"],
-      image: "/placeholder.svg?height=200&width=300&text=Baltra+Bar",
+      image: "/images/guide/salon-rosetta.jpg",
     },
     {
       name: "Gin Gin",
@@ -268,7 +268,7 @@ export default function GuidePage() {
       neighborhood: "Roma Norte",
       description: "Great drinks and locations all across the city",
       highlights: ["Date night vibe"],
-      image: "/placeholder.svg?height=200&width=300&text=Bosforo+Mezcal",
+      image: "/images/guide/gin-gin.jpg",
     },
     {
       name: "Cityzen Bar",
@@ -276,7 +276,7 @@ export default function GuidePage() {
       neighborhood: "Roma Norte",
       description: "The best view of the city at night. The food is underwhelming, but the drinks are good.",
       highlights: ["Great view"],
-      image: "/placeholder.svg?height=200&width=300&text=Xaman+Bar",
+      image: "/images/guide/cityzen-bar.jpeg",
     },
     {
       name: "Departamento",
@@ -284,7 +284,7 @@ export default function GuidePage() {
       neighborhood: "Roma Norte",
       description: "Popular late-night spot with great music and dancing",
       highlights: ["Dancing", "Late night", "Local favorite"],
-      image: "/placeholder.svg?height=200&width=300&text=Patrick+Miller",
+      image: "/images/guide/departamento.jpg",
     },
     {
       name: "Handshake",
@@ -292,7 +292,7 @@ export default function GuidePage() {
       neighborhood: "Roma Norte",
       description: "Speakeasy-style cocktail bar with creative drinks and intimate atmosphere",
       highlights: ["Speakeasy", "Creative cocktails", "World's 50 Best Bars"],
-      image: "/placeholder.svg?height=200&width=300&text=Handshake+Bar",
+      image: "/images/guide/handshake.jpg",
     },
     {
       name: "Hanky Panky",
@@ -300,7 +300,7 @@ export default function GuidePage() {
       neighborhood: "Roma Norte",
       description: "Hidden speakeasy with expertly crafted cocktails and a sophisticated atmosphere",
       highlights: ["Speakeasy", "Creative cocktails"],
-      image: "/placeholder.svg?height=200&width=300&text=Hanky+Panky",
+      image: "/images/guide/hanky-panky.jpg",
     },
   ]
 
@@ -311,7 +311,7 @@ export default function GuidePage() {
       neighborhood: "Coyoacán",
       description: "The famous Blue House where Frida Kahlo lived and worked",
       highlights: ["Frida's actual home", "Personal artifacts", "Beautiful gardens"],
-      image: "/placeholder.svg?height=200&width=300&text=Frida+Kahlo+Museum",
+      image: "/images/guide/frida-khalo-museum.jpg",
     },
     {
       name: "National Museum of Anthropology",
@@ -319,7 +319,7 @@ export default function GuidePage() {
       neighborhood: "Chapultepec",
       description: "World-class museum showcasing Mexico's pre-Columbian heritage",
       highlights: ["Aztec artifacts", "Mayan exhibits", "World-renowned collection"],
-      image: "/placeholder.svg?height=200&width=300&text=Anthropology+Museum",
+      image: "/images/guide/national-museum-of-anthropology.jpg",
     },
     {
       name: "Palacio de Bellas Artes",
@@ -327,7 +327,7 @@ export default function GuidePage() {
       neighborhood: "Centro Histórico",
       description: "Stunning Art Nouveau building housing Mexico's premier cultural center",
       highlights: ["Beautiful architecture", "Diego Rivera murals", "Opera house"],
-      image: "/placeholder.svg?height=200&width=300&text=Bellas+Artes",
+      image: "/images/guide/palacio-de-bellas-artes.jpeg",
     },
     {
       name: "Museo Soumaya",
@@ -335,7 +335,7 @@ export default function GuidePage() {
       neighborhood: "Polanco",
       description: "Distinctive silver building with an impressive art collection",
       highlights: ["Unique architecture", "Rodin sculptures", "Free admission"],
-      image: "/placeholder.svg?height=200&width=300&text=Museo+Soumaya",
+      image: "/images/guide/museo-soumaya.jpg",
     },
     {
       name: "Casa Luis Barragán",
@@ -343,7 +343,7 @@ export default function GuidePage() {
       neighborhood: "Tacubaya",
       description: "UNESCO World Heritage site showcasing the architect's colorful modernist style",
       highlights: ["UNESCO site", "Colorful architecture", "Guided tours only"],
-      image: "/placeholder.svg?height=200&width=300&text=Casa+Barragan",
+      image: "/images/guide/casa-luis-barragan.jpg",
     },
   ]
 
@@ -354,7 +354,7 @@ export default function GuidePage() {
       neighborhood: "Xochimilco",
       description: "Traditional trajinera boat ride through ancient canals with mariachi music",
       highlights: ["Colorful boats", "Mariachi music", "Traditional food"],
-      image: "/placeholder.svg?height=200&width=300&text=Xochimilco+Boats",
+      image: "/images/guide/xochimilco-boat-ride.jpeg",
     },
     {
       name: "Chapultepec Park",
@@ -362,7 +362,7 @@ export default function GuidePage() {
       neighborhood: "Chapultepec",
       description: "Massive urban park perfect for walking, picnicking, and exploring",
       highlights: ["Huge park", "Multiple museums", "Great for walking"],
-      image: "/placeholder.svg?height=200&width=300&text=Chapultepec+Park",
+      image: "/images/guide/chapultapec-park.jpeg",
     },
     {
       name: "Lucha Libre at Arena México",
@@ -370,7 +370,7 @@ export default function GuidePage() {
       neighborhood: "Doctores",
       description: "Experience Mexico's famous masked wrestling in the sport's most iconic venue",
       highlights: ["Authentic lucha libre", "Colorful masks", "Fun atmosphere"],
-      image: "/placeholder.svg?height=200&width=300&text=Lucha+Libre",
+      image: "/images/guide/lucha-libre-at-arena-mexico.jpg",
     },
     {
       name: "Coyoacán",
@@ -378,7 +378,7 @@ export default function GuidePage() {
       neighborhood: "Coyoacán",
       description: "Explore the charming cobblestone streets and colonial architecture",
       highlights: ["Colonial architecture", "Artisan markets", "Historic plazas"],
-      image: "/placeholder.svg?height=200&width=300&text=Coyoacan+Streets",
+      image: "/images/guide/coyoacan.jpg",
     },
     {
       name: "Teotihuacán Day Trip",
@@ -386,7 +386,7 @@ export default function GuidePage() {
       neighborhood: "Outside Mexico City",
       description: "Visit the ancient pyramids and archaeological site (1 hour from city)",
       highlights: ["Ancient pyramids", "Pyramid of the Sun", "Day trip"],
-      image: "/placeholder.svg?height=200&width=300&text=Teotihuacan+Pyramids",
+      image: "/images/guide/teotihuacan-day-trip.jpg",
     },
   ]
 
