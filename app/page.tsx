@@ -2,13 +2,12 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { Plane, MapPin, Calendar, Heart, Users, SparklesIcon as Champagne, Music } from "lucide-react"
+import { Plane, MapPin, Calendar, Heart, Users, SparklesIcon as Champagne, Music, Navigation } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function HomePage() {
   const [currentScene, setCurrentScene] = useState("landing")
   const [isLoaded, setIsLoaded] = useState(false)
-  const [hoveredRow, setHoveredRow] = useState<string | null>(null)
 
   useEffect(() => {
     setIsLoaded(true)
@@ -24,29 +23,6 @@ export default function HomePage() {
 
   const handleEnterWedding = () => {
     setCurrentScene("welcome")
-  }
-
-  const handleWhatsAppJoin = () => {
-    // WhatsApp group invite link
-    const whatsappLink = "https://chat.whatsapp.com/EBLYskiMMT55VELRypOFyg"
-    window.open(whatsappLink, '_blank')
-  }
-
-  // Helper function to get animation style based on hover state
-  const getAnimationStyle = (rowId: string) => {
-    return {
-      animationPlayState: hoveredRow === rowId ? 'paused' : 'running'
-    }
-  }
-
-  // Helper function to handle image loading
-  const handleImageLoad = (src: string) => {
-    console.log(`Successfully loaded image: ${src}`);
-  }
-
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>, src: string) => {
-    console.error(`Failed to load image: ${src}`);
-    e.currentTarget.src = "/placeholder.svg";
   }
 
   if (currentScene === "landing") {
@@ -74,7 +50,6 @@ export default function HomePage() {
                     <div
                       className={`transform transition-all duration-2000 ${isLoaded ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
                     >
-                      <Plane className="h-12 w-12 mx-auto mb-4 animate-bounce" />
                       <p className="text-lg font-light tracking-wide">Approaching Mexico City...</p>
                       <p className="text-sm opacity-80 mt-2">Friday, April 3, 2026</p>
                     </div>
@@ -119,14 +94,11 @@ export default function HomePage() {
 
         {/* Boarding Pass */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center text-white max-w-2xl px-8">
+          <div className="text-center text-white max-w-6xl px-8">
             <div
               className={`transform transition-all duration-2000 ${isLoaded ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
             >
               <div className="mb-8">
-                <div className="w-24 h-24 border-2 border-white rounded-full flex items-center justify-center mx-auto mb-6 animate-pulse">
-                  <Heart className="h-12 w-12 fill-current" />
-                </div>
                 <h1 className="text-4xl font-serif mb-4">Welcome to Mexico City</h1>
                 <p className="text-xl font-light opacity-90 mb-8">
                   You&apos;ve arrived at Gaby & Conor&apos;s wedding destination
@@ -134,10 +106,12 @@ export default function HomePage() {
               </div>
 
               {/* Authentic Boarding Pass Design */}
-              <div className="bg-white text-gray-800 rounded-lg shadow-2xl max-w-lg mx-auto mb-8 overflow-hidden">
+              <div
+                className="bg-white text-gray-800 rounded-lg shadow-2xl w-full max-w-6xl mx-auto mb-8 overflow-hidden"
+              >
                 {/* Red Header */}
-                <div className="bg-[rgb(228,198,191)] text-[rgb(88,104,127)] px-6 py-4 flex justify-between items-center">
-                  <div className="flex items-center space-x-2">
+                <div className="bg-[rgb(228,198,191)] text-[rgb(88,104,127)] px-8 py-3 flex justify-between items-center">
+                  <div className="flex items-center space-x-3">
                     <span className="font-bold text-lg tracking-wide">BOARDING PASS</span>
                     <Plane className="h-5 w-5" />
                   </div>
@@ -147,7 +121,7 @@ export default function HomePage() {
                 </div>
 
                 {/* Main Body */}
-                <div className="p-6 bg-white relative">
+                <div className="px-8 py-6 bg-white relative">
                   {/* Left Barcode */}
                   <div className="absolute left-4 top-4 bottom-4 w-8 flex flex-col justify-between">
                     {[...Array(20)].map((_, i) => (
@@ -163,15 +137,27 @@ export default function HomePage() {
                   </div>
 
                   {/* Main Content */}
-                  <div className="ml-12 mr-16">
-                    <div className="grid grid-cols-2 gap-8 mb-6">
-                      <div>
-                        <p className="text-xs uppercase tracking-wide text-gray-500 mb-1">Passenger</p>
-                        <p className="font-bold text-lg">Wedding Guest</p>
+                  <div className="ml-16 mr-20">
+                    <div className="flex justify-between items-start mb-6 flex-wrap gap-8">
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs uppercase tracking-wide text-gray-500 mb-2">Passenger</p>
+                        <p className="font-bold text-lg">You</p>
                       </div>
-                      <div className="text-right">
-                        <p className="text-xs uppercase tracking-wide text-gray-500 mb-1">Flight</p>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs uppercase tracking-wide text-gray-500 mb-2">Flight</p>
                         <p className="font-bold text-lg">LOVE2026</p>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs uppercase tracking-wide text-gray-500 mb-2">From</p>
+                        <p className="font-bold text-lg">Everywhere</p>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs uppercase tracking-wide text-gray-500 mb-2">To</p>
+                        <p className="font-bold text-lg">Mexico City</p>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs uppercase tracking-wide text-gray-500 mb-2">Date</p>
+                        <p className="font-bold text-lg">FRI 03 APR</p>
                       </div>
                     </div>
 
@@ -179,7 +165,7 @@ export default function HomePage() {
                     <div className="text-center mb-6">
                       <Plane className="h-8 w-8 text-[rgb(88,104,127)] mx-auto mb-2" />
                       <div className="flex justify-center space-x-1">
-                        {[...Array(7)].map((_, i) => (
+                        {[...Array(12)].map((_, i) => (
                           <span key={i} className="text-[rgb(88,104,127)]">
                             ★
                           </span>
@@ -187,31 +173,28 @@ export default function HomePage() {
                       </div>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-4 text-sm">
-                      <div>
-                        <p className="text-xs uppercase tracking-wide text-gray-500 mb-1">From</p>
-                        <p className="font-semibold">Everywhere</p>
-                      </div>
-                      <div className="text-center">
-                        <p className="text-xs uppercase tracking-wide text-gray-500 mb-1">Date</p>
-                        <p className="font-semibold">FRI 03 APR</p>
-                      </div>
-                      <div className="text-right">
-                        <p className="text-xs uppercase tracking-wide text-gray-500 mb-1">To</p>
-                        <p className="font-semibold">Mexico City</p>
-                      </div>
-                    </div>
-
                     <div className="border-t border-dashed border-gray-300 my-4"></div>
 
-                    <div className="grid grid-cols-2 gap-4 text-sm">
-                      <div>
-                        <p className="text-xs uppercase tracking-wide text-gray-500 mb-1">Gate</p>
-                        <p className="font-semibold">LOVE</p>
+                    <div className="flex justify-between items-start text-sm flex-wrap gap-8">
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs uppercase tracking-wide text-gray-500 mb-2">Seat</p>
+                        <p className="font-bold text-lg">VIP</p>
                       </div>
-                      <div className="text-right">
-                        <p className="text-xs uppercase tracking-wide text-gray-500 mb-1">Seat</p>
-                        <p className="font-semibold">VIP</p>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs uppercase tracking-wide text-gray-500 mb-2">Class</p>
+                        <p className="font-bold text-lg">First</p>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs uppercase tracking-wide text-gray-500 mb-2">Duration</p>
+                        <p className="font-bold text-lg">Weekend</p>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs uppercase tracking-wide text-gray-500 mb-2">Boarding</p>
+                        <p className="font-bold text-lg">Anytime</p>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <p className="text-xs uppercase tracking-wide text-gray-500 mb-2">Gate</p>
+                        <p className="font-bold text-lg">LOVE</p>
                       </div>
                     </div>
                   </div>
@@ -354,24 +337,26 @@ export default function HomePage() {
             </div>
             <div className="hidden md:flex space-x-8">
               {[
-                { name: "Our Story", icon: Heart },
-                { name: "Venue", icon: MapPin },
-                { name: "Travel", icon: Plane },
-                { name: "Celebrate", icon: Champagne },
-                { name: "RSVP", icon: Users, disabled: true },
+                { name: "Our Home", icon: Heart, href: "#our-story", current: true },
+                { name: "Travel", icon: Plane, href: "/travel" },
+                { name: "CDMX Guide", icon: Navigation, href: "/guide" },
+                { name: "RSVP", icon: Users, href: "#rsvp", disabled: true },
               ].map((item) => (
-                <span
+                <a
                   key={item.name}
-                  className={`flex items-center space-x-2 transition-colors duration-300 group ${
-                    item.disabled 
-                      ? "text-gray-400 cursor-not-allowed opacity-50" 
-                      : "text-[rgb(88,104,127)] hover:text-[rgb(125,146,175)]"
+                  href={item.disabled ? "#" : item.href}
+                  className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 group ${
+                    item.current
+                      ? "bg-[rgb(88,104,127)] text-white shadow-lg"
+                      : item.disabled
+                      ? "text-gray-400 cursor-not-allowed opacity-50"
+                      : "text-[rgb(88,104,127)] hover:text-[rgb(125,146,175)] hover:bg-[rgb(88,104,127)]/10"
                   }`}
-                  title={item.disabled ? "RSVP coming soon with formal invitations" : ""}
+                  onClick={item.disabled ? (e) => e.preventDefault() : undefined}
                 >
                   <item.icon className={`h-4 w-4 ${!item.disabled ? "group-hover:scale-110" : ""} transition-transform`} />
                   <span className="font-light tracking-wide">{item.name}</span>
-                </span>
+                </a>
               ))}
             </div>
           </div>
@@ -418,7 +403,6 @@ export default function HomePage() {
                     </p>
 
                     <Button
-                      onClick={handleWhatsAppJoin}
                       size="sm"
                       className="bg-green-500 hover:bg-green-600 text-white px-8 py-2 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300 font-medium"
                     >
@@ -433,7 +417,7 @@ export default function HomePage() {
                 <div className="absolute -inset-4 bg-gradient-to-r from-[rgb(125,146,175)] to-[rgb(228,198,191)] rounded-3xl transform rotate-3 opacity-20"></div>
                 <div className="relative bg-white p-6 rounded-3xl shadow-2xl">
                   <Image
-                    src="/images/carousel/IMG_2498.jpg"
+                    src="/images/save-the-date.png"
                     alt="Our Save the Date Design"
                     width={400}
                     height={300}
@@ -458,31 +442,19 @@ export default function HomePage() {
         </div>
 
         {/* Infinite Horizontal Scroll - Collage Style */}
-        <div className="relative h-[900px] overflow-hidden">
+        <div className="relative h-[600px]">
           {/* Row 1 - Top */}
-          <div 
-            className={`absolute top-0 flex animate-scroll-slow`}
-            style={getAnimationStyle('row1')}
-            onMouseEnter={() => setHoveredRow('row1')}
-            onMouseLeave={() => setHoveredRow(null)}
-          >
+          <div className="absolute top-0 flex animate-scroll-slow space-x-8">
             <div className="flex space-x-8 shrink-0">
               {[
-                { src: "/images/carousel/CA861E7D-0C70-4710-ADB6-E62A2FBEA9CE.JPEG", alt: "Our adventures together", size: "large" },
-                { src: "/images/carousel/CB07FF00-F7F1-4BE6-B788-FC282CEF2916.JPG", alt: "Beautiful moments captured", size: "square" },
-                { src: "/images/carousel/FullSizeRender.JPG", alt: "Exploring new places", size: "tall" },
-                { src: "/images/carousel/IMG_0006.JPG", alt: "Travel memories", size: "wide" },
-                { src: "/images/carousel/IMG_0030.JPG", alt: "Special moments", size: "square" },
-                { src: "/images/carousel/IMG_1323.JPG", alt: "Memorable", size: "tall" },
-                { src: "/images/carousel/IMG_0261.JPG", alt: "Memories made", size: "square" },
-                { src: "/images/carousel/IMG_0382.JPG", alt: "Fun times", size: "square" },
-                { src: "/images/carousel/IMG_0570.JPG", alt: "Exploring", size: "tall" },
-                { src: "/images/carousel/IMG_0587.JPG", alt: "Travel", size: "tall" },
-                { src: "/images/carousel/IMG_0612.JPG", alt: "Special moments", size: "tall" },
-                { src: "/images/carousel/IMG_0709.JPG", alt: "Special", size: "square" },
-                { src: "/images/carousel/IMG_0957.JPG", alt: "Scenic overlook", size: "wide" },
-                { src: "/images/carousel/IMG_0758.JPG", alt: "Memorable", size: "tall" },
-                { src: "/images/carousel/IMG_08183.JPG", alt: "Beautiful", size: "square" },
+                { src: "/placeholder.svg?height=250&width=350", alt: "Beach sunset in Tulum", size: "large" },
+                { src: "/placeholder.svg?height=200&width=200", alt: "Street art in Mexico City", size: "square" },
+                { src: "/placeholder.svg?height=300&width=240", alt: "Mountain hiking adventure", size: "tall" },
+                { src: "/placeholder.svg?height=180&width=280", alt: "Local market exploration", size: "wide" },
+                { src: "/placeholder.svg?height=220&width=220", alt: "Rooftop dinner", size: "square" },
+                { src: "/placeholder.svg?height=280&width=200", alt: "Cathedral visit", size: "tall" },
+                { src: "/placeholder.svg?height=200&width=320", alt: "Beach day", size: "wide" },
+                { src: "/placeholder.svg?height=240&width=240", alt: "Coffee shop moment", size: "square" },
               ].map((photo, index) => (
                 <div key={index} className="relative group shrink-0">
                   <div
@@ -498,13 +470,59 @@ export default function HomePage() {
                   >
                     <div className="absolute -inset-1 bg-gradient-to-r from-[rgb(125,146,175)] to-[rgb(228,198,191)] rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity"></div>
                     <div className="relative bg-white p-3 rounded-2xl h-full">
-                      <img
+                      <Image
                         src={photo.src || "/placeholder.svg"}
                         alt={photo.alt}
+                        width={
+                          photo.size === "large" ? 350 : photo.size === "wide" ? 320 : photo.size === "tall" ? 240 : 220
+                        }
+                        height={
+                          photo.size === "large" ? 250 : photo.size === "wide" ? 200 : photo.size === "tall" ? 300 : 220
+                        }
                         className="w-full h-full object-cover rounded-xl"
-                        loading="lazy"
-                        onLoad={() => handleImageLoad(photo.src)}
-                        onError={(e) => handleImageError(e, photo.src)}
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Duplicate for seamless loop */}
+            <div className="flex space-x-8 shrink-0">
+              {[
+                { src: "/placeholder.svg?height=250&width=350", alt: "Beach sunset in Tulum", size: "large" },
+                { src: "/placeholder.svg?height=200&width=200", alt: "Street art in Mexico City", size: "square" },
+                { src: "/placeholder.svg?height=300&width=240", alt: "Mountain hiking adventure", size: "tall" },
+                { src: "/placeholder.svg?height=180&width=280", alt: "Local market exploration", size: "wide" },
+                { src: "/placeholder.svg?height=220&width=220", alt: "Rooftop dinner", size: "square" },
+                { src: "/placeholder.svg?height=280&width=200", alt: "Cathedral visit", size: "tall" },
+                { src: "/placeholder.svg?height=200&width=320", alt: "Beach day", size: "wide" },
+                { src: "/placeholder.svg?height=240&width=240", alt: "Coffee shop moment", size: "square" },
+              ].map((photo, index) => (
+                <div key={`dup1-${index}`} className="relative group shrink-0">
+                  <div
+                    className={`bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-xl ${
+                      photo.size === "large"
+                        ? "w-[350px] h-[250px]"
+                        : photo.size === "square"
+                          ? "w-[220px] h-[220px]"
+                          : photo.size === "tall"
+                            ? "w-[240px] h-[300px]"
+                            : "w-[320px] h-[200px]" // wide
+                    }`}
+                  >
+                    <div className="absolute -inset-1 bg-gradient-to-r from-[rgb(125,146,175)] to-[rgb(228,198,191)] rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity"></div>
+                    <div className="relative bg-white p-3 rounded-2xl h-full">
+                      <Image
+                        src={photo.src || "/placeholder.svg"}
+                        alt={photo.alt}
+                        width={
+                          photo.size === "large" ? 350 : photo.size === "wide" ? 320 : photo.size === "tall" ? 240 : 220
+                        }
+                        height={
+                          photo.size === "large" ? 250 : photo.size === "wide" ? 200 : photo.size === "tall" ? 300 : 220
+                        }
+                        className="w-full h-full object-cover rounded-xl"
                       />
                     </div>
                   </div>
@@ -514,31 +532,17 @@ export default function HomePage() {
           </div>
 
           {/* Row 2 - Middle (offset and different speed) */}
-          <div 
-            className={`absolute top-[300px] flex animate-scroll-medium`}
-            style={getAnimationStyle('row2')}
-            onMouseEnter={() => setHoveredRow('row2')}
-            onMouseLeave={() => setHoveredRow(null)}
-          >
+          <div className="absolute top-[180px] flex animate-scroll-medium space-x-6">
             <div className="flex space-x-6 shrink-0">
               {[
-                { src: "/images/carousel/IMG_0256.JPG", alt: "Beautiful destinations", size: "wide" },
-                { src: "/images/carousel/IMG_2122.JPG", alt: "Museum visit", size: "tall" },
-                { src: "/images/carousel/IMG_2722.JPG", alt: "Road trip adventure", size: "large" },
-                { src: "/images/carousel/IMG_3705.JPG", alt: "Historic site", size: "tall" },
-                { src: "/images/carousel/IMG_0983.JPG", alt: "Boat ride", size: "tall" },
-                { src: "/images/carousel/IMG_1030.JPG", alt: "Art gallery", size: "tall" },
-                { src: "/images/carousel/IMG_7970.JPG", alt: "Local festival", size: "square" },
-                { src: "/images/carousel/IMG_2363.JPG", alt: "City exploration", size: "tall" },
-                { src: "/images/carousel/IMG_1879.JPG", alt: "Memories", size: "square" },
-                { src: "/images/carousel/IMG_1279.JPG", alt: "Special", size: "square" },
-                { src: "/images/carousel/IMG_9137.JPG", alt: "Another adventure", size: "large" },
-                { src: "/images/carousel/IMG_2298.JPG", alt: "Fun times", size: "square" },
-                { src: "/images/carousel/IMG_2283.JPG", alt: "Exploring", size: "tall" },
-                { src: "/images/carousel/IMG_2168.JPG", alt: "Special", size: "square" },
-                { src: "/images/carousel/IMG_2875.JPG", alt: "Memorable", size: "tall" },
-                { src: "/images/carousel/IMG_3186.JPG", alt: "Memories", size: "square" },
-                { src: "/images/carousel/IMG_6900.JPG", alt: "Memories", size: "square" },
+                { src: "/placeholder.svg?height=200&width=300", alt: "Cooking class together", size: "wide" },
+                { src: "/placeholder.svg?height=280&width=200", alt: "Museum visit", size: "tall" },
+                { src: "/placeholder.svg?height=180&width=180", alt: "Sunset drinks", size: "square" },
+                { src: "/placeholder.svg?height=220&width=340", alt: "Road trip adventure", size: "large" },
+                { src: "/placeholder.svg?height=260&width=200", alt: "Historic site", size: "tall" },
+                { src: "/placeholder.svg?height=200&width=200", alt: "Local festival", size: "square" },
+                { src: "/placeholder.svg?height=180&width=300", alt: "Beach walk", size: "wide" },
+                { src: "/placeholder.svg?height=240&width=180", alt: "City exploration", size: "tall" },
               ].map((photo, index) => (
                 <div key={index} className="relative group shrink-0">
                   <div
@@ -554,13 +558,145 @@ export default function HomePage() {
                   >
                     <div className="absolute -inset-1 bg-gradient-to-r from-[rgb(228,198,191)] to-[rgb(125,146,175)] rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity"></div>
                     <div className="relative bg-white p-3 rounded-2xl h-full">
-                      <img
+                      <Image
                         src={photo.src || "/placeholder.svg"}
                         alt={photo.alt}
+                        width={
+                          photo.size === "large" ? 340 : photo.size === "wide" ? 300 : photo.size === "tall" ? 200 : 200
+                        }
+                        height={
+                          photo.size === "large" ? 220 : photo.size === "wide" ? 180 : photo.size === "tall" ? 280 : 200
+                        }
                         className="w-full h-full object-cover rounded-xl"
-                        loading="lazy"
-                        onLoad={() => handleImageLoad(photo.src)}
-                        onError={(e) => handleImageError(e, photo.src)}
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Duplicate for seamless loop */}
+            <div className="flex space-x-6 shrink-0">
+              {[
+                { src: "/placeholder.svg?height=200&width=300", alt: "Cooking class together", size: "wide" },
+                { src: "/placeholder.svg?height=280&width=200", alt: "Museum visit", size: "tall" },
+                { src: "/placeholder.svg?height=180&width=180", alt: "Sunset drinks", size: "square" },
+                { src: "/placeholder.svg?height=220&width=340", alt: "Road trip adventure", size: "large" },
+                { src: "/placeholder.svg?height=260&width=200", alt: "Historic site", size: "tall" },
+                { src: "/placeholder.svg?height=200&width=200", alt: "Local festival", size: "square" },
+                { src: "/placeholder.svg?height=180&width=300", alt: "Beach walk", size: "wide" },
+                { src: "/placeholder.svg?height=240&width=180", alt: "City exploration", size: "tall" },
+              ].map((photo, index) => (
+                <div key={index} className="relative group shrink-0">
+                  <div
+                    className={`bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-xl ${
+                      photo.size === "large"
+                        ? "w-[340px] h-[220px]"
+                        : photo.size === "square"
+                          ? "w-[200px] h-[200px]"
+                          : photo.size === "tall"
+                            ? "w-[200px] h-[280px]"
+                            : "w-[300px] h-[180px]" // wide
+                    }`}
+                  >
+                    <div className="absolute -inset-1 bg-gradient-to-r from-[rgb(228,198,191)] to-[rgb(125,146,175)] rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity"></div>
+                    <div className="relative bg-white p-3 rounded-2xl h-full">
+                      <Image
+                        src={photo.src || "/placeholder.svg"}
+                        alt={photo.alt}
+                        width={
+                          photo.size === "large" ? 340 : photo.size === "wide" ? 300 : photo.size === "tall" ? 200 : 200
+                        }
+                        height={
+                          photo.size === "large" ? 220 : photo.size === "wide" ? 180 : photo.size === "tall" ? 280 : 200
+                        }
+                        className="w-full h-full object-cover rounded-xl"
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Duplicate for seamless loop */}
+            <div className="flex space-x-6 shrink-0">
+              {[
+                { src: "/placeholder.svg?height=200&width=300", alt: "Cooking class together", size: "wide" },
+                { src: "/placeholder.svg?height=280&width=200", alt: "Museum visit", size: "tall" },
+                { src: "/placeholder.svg?height=180&width=180", alt: "Sunset drinks", size: "square" },
+                { src: "/placeholder.svg?height=220&width=340", alt: "Road trip adventure", size: "large" },
+                { src: "/placeholder.svg?height=260&width=200", alt: "Historic site", size: "tall" },
+                { src: "/placeholder.svg?height=200&width=200", alt: "Local festival", size: "square" },
+                { src: "/placeholder.svg?height=180&width=300", alt: "Beach walk", size: "wide" },
+                { src: "/placeholder.svg?height=240&width=180", alt: "City exploration", size: "tall" },
+              ].map((photo, index) => (
+                <div key={index} className="relative group shrink-0">
+                  <div
+                    className={`bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-xl ${
+                      photo.size === "large"
+                        ? "w-[340px] h-[220px]"
+                        : photo.size === "square"
+                          ? "w-[200px] h-[200px]"
+                          : photo.size === "tall"
+                            ? "w-[200px] h-[280px]"
+                            : "w-[300px] h-[180px]" // wide
+                    }`}
+                  >
+                    <div className="absolute -inset-1 bg-gradient-to-r from-[rgb(228,198,191)] to-[rgb(125,146,175)] rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity"></div>
+                    <div className="relative bg-white p-3 rounded-2xl h-full">
+                      <Image
+                        src={photo.src || "/placeholder.svg"}
+                        alt={photo.alt}
+                        width={
+                          photo.size === "large" ? 340 : photo.size === "wide" ? 300 : photo.size === "tall" ? 200 : 200
+                        }
+                        height={
+                          photo.size === "large" ? 220 : photo.size === "wide" ? 180 : photo.size === "tall" ? 280 : 200
+                        }
+                        className="w-full h-full object-cover rounded-xl"
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Duplicate for seamless loop */}
+            <div className="flex space-x-6 shrink-0">
+              {[
+                { src: "/placeholder.svg?height=200&width=300", alt: "Cooking class together", size: "wide" },
+                { src: "/placeholder.svg?height=280&width=200", alt: "Museum visit", size: "tall" },
+                { src: "/placeholder.svg?height=180&width=180", alt: "Sunset drinks", size: "square" },
+                { src: "/placeholder.svg?height=220&width=340", alt: "Road trip adventure", size: "large" },
+                { src: "/placeholder.svg?height=260&width=200", alt: "Historic site", size: "tall" },
+                { src: "/placeholder.svg?height=200&width=200", alt: "Local festival", size: "square" },
+                { src: "/placeholder.svg?height=180&width=300", alt: "Beach walk", size: "wide" },
+                { src: "/placeholder.svg?height=240&width=180", alt: "City exploration", size: "tall" },
+              ].map((photo, index) => (
+                <div key={`dup2-${index}`} className="relative group shrink-0">
+                  <div
+                    className={`bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-xl ${
+                      photo.size === "large"
+                        ? "w-[340px] h-[220px]"
+                        : photo.size === "square"
+                          ? "w-[200px] h-[200px]"
+                          : photo.size === "tall"
+                            ? "w-[200px] h-[280px]"
+                            : "w-[300px] h-[180px]" // wide
+                    }`}
+                  >
+                    <div className="absolute -inset-1 bg-gradient-to-r from-[rgb(228,198,191)] to-[rgb(125,146,175)] rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity"></div>
+                    <div className="relative bg-white p-3 rounded-2xl h-full">
+                      <Image
+                        src={photo.src || "/placeholder.svg"}
+                        alt={photo.alt}
+                        width={
+                          photo.size === "large" ? 340 : photo.size === "wide" ? 300 : photo.size === "tall" ? 200 : 200
+                        }
+                        height={
+                          photo.size === "large" ? 220 : photo.size === "wide" ? 180 : photo.size === "tall" ? 280 : 200
+                        }
+                        className="w-full h-full object-cover rounded-xl"
                       />
                     </div>
                   </div>
@@ -570,31 +706,17 @@ export default function HomePage() {
           </div>
 
           {/* Row 3 - Bottom (different speed again) */}
-          <div 
-            className={`absolute top-[600px] flex animate-scroll-fast`}
-            style={getAnimationStyle('row3')}
-            onMouseEnter={() => setHoveredRow('row3')}
-            onMouseLeave={() => setHoveredRow(null)}
-          >
+          <div className="absolute top-[380px] flex animate-scroll-fast space-x-7">
             <div className="flex space-x-7 shrink-0">
               {[
-                { src: "/images/carousel/IMG_0825.JPG", alt: "Morning coffee", size: "square" },
-                { src: "/images/carousel/IMG_0231.JPG", alt: "Adventure awaits", size: "tall" },
-                { src: "/images/carousel/IMG_3925.JPG", alt: "Sunset drinks", size: "square" },
-                { src: "/images/carousel/IMG_0961.JPG", alt: "Architecture tour", size: "tall" },
-                { src: "/images/carousel/IMG_0978.JPG", alt: "Local cuisine", size: "square" },
-                { src: "/images/carousel/IMG_1061.JPG", alt: "Garden stroll", size: "wide" },
-                { src: "/images/carousel/IMG_3753.JPG", alt: "Beautiful", size: "tall" },
-                { src: "/images/carousel/IMG_1080.JPG", alt: "Evening lights", size: "square" },
-                { src: "/images/carousel/IMG_1177.JPG", alt: "Another adventure", size: "large" },
-                { src: "/images/carousel/IMG_1203.JPG", alt: "Fun times", size: "square" },
-                { src: "/images/carousel/IMG_2498.jpg", alt: "Beach walk", size: "wide" },
-                { src: "/images/carousel/IMG_1220.JPG", alt: "Exploring", size: "tall" },
-                { src: "/images/carousel/IMG_1229.JPG", alt: "Travel", size: "wide" },
-                { src: "/images/carousel/PNGimage.png", alt: "Cooking class together", size: "wide" },
-                { src: "/images/carousel/IMG_1432.JPG", alt: "Beautiful", size: "wide" },
-                { src: "/images/carousel/IMG_0266.JPG", alt: "Another adventure", size: "square" },
-                { src: "/images/carousel/IMG_1966.JPG", alt: "Memories", size: "square" },
+                { src: "/placeholder.svg?height=190&width=190", alt: "Morning coffee", size: "square" },
+                { src: "/placeholder.svg?height=240&width=320", alt: "Scenic overlook", size: "wide" },
+                { src: "/placeholder.svg?height=270&width=210", alt: "Architecture tour", size: "tall" },
+                { src: "/placeholder.svg?height=200&width=200", alt: "Local cuisine", size: "square" },
+                { src: "/placeholder.svg?height=180&width=280", alt: "Boat ride", size: "wide" },
+                { src: "/placeholder.svg?height=250&width=190", alt: "Art gallery", size: "tall" },
+                { src: "/placeholder.svg?height=210&width=310", alt: "Garden stroll", size: "wide" },
+                { src: "/placeholder.svg?height=220&width=220", alt: "Evening lights", size: "square" },
               ].map((photo, index) => (
                 <div key={index} className="relative group shrink-0">
                   <div
@@ -608,13 +730,49 @@ export default function HomePage() {
                   >
                     <div className="absolute -inset-1 bg-gradient-to-r from-[rgb(125,146,175)] to-[rgb(242,230,229)] rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity"></div>
                     <div className="relative bg-white p-3 rounded-2xl h-full">
-                      <img
+                      <Image
                         src={photo.src || "/placeholder.svg"}
                         alt={photo.alt}
+                        width={photo.size === "square" ? 210 : photo.size === "tall" ? 210 : 310}
+                        height={photo.size === "square" ? 210 : photo.size === "tall" ? 270 : 190}
                         className="w-full h-full object-cover rounded-xl"
-                        loading="lazy"
-                        onLoad={() => handleImageLoad(photo.src)}
-                        onError={(e) => handleImageError(e, photo.src)}
+                      />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Duplicate for seamless loop */}
+            <div className="flex space-x-7 shrink-0">
+              {[
+                { src: "/placeholder.svg?height=190&width=190", alt: "Morning coffee", size: "square" },
+                { src: "/placeholder.svg?height=240&width=320", alt: "Scenic overlook", size: "wide" },
+                { src: "/placeholder.svg?height=270&width=210", alt: "Architecture tour", size: "tall" },
+                { src: "/placeholder.svg?height=200&width=200", alt: "Local cuisine", size: "square" },
+                { src: "/placeholder.svg?height=180&width=280", alt: "Boat ride", size: "wide" },
+                { src: "/placeholder.svg?height=250&width=190", alt: "Art gallery", size: "tall" },
+                { src: "/placeholder.svg?height=210&width=310", alt: "Garden stroll", size: "wide" },
+                { src: "/placeholder.svg?height=220&width=220", alt: "Evening lights", size: "square" },
+              ].map((photo, index) => (
+                <div key={`dup3-${index}`} className="relative group shrink-0">
+                  <div
+                    className={`bg-white rounded-2xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-xl ${
+                      photo.size === "square"
+                        ? "w-[210px] h-[210px]"
+                        : photo.size === "tall"
+                          ? "w-[210px] h-[270px]"
+                          : "w-[310px] h-[190px]" // wide
+                    }`}
+                  >
+                    <div className="absolute -inset-1 bg-gradient-to-r from-[rgb(125,146,175)] to-[rgb(242,230,229)] rounded-2xl opacity-0 group-hover:opacity-30 transition-opacity"></div>
+                    <div className="relative bg-white p-3 rounded-2xl h-full">
+                      <Image
+                        src={photo.src || "/placeholder.svg"}
+                        alt={photo.alt}
+                        width={photo.size === "square" ? 210 : photo.size === "tall" ? 210 : 310}
+                        height={photo.size === "square" ? 210 : photo.size === "tall" ? 270 : 190}
+                        className="w-full h-full object-cover rounded-xl"
                       />
                     </div>
                   </div>
@@ -656,7 +814,7 @@ export default function HomePage() {
                 <div className="absolute -inset-6 bg-gradient-to-r from-[rgb(228,198,191)] to-[rgb(224,241,231)] rounded-3xl transform -rotate-2 opacity-20"></div>
                 <div className="relative bg-white p-8 rounded-3xl shadow-2xl">
                   <Image
-                    src="/images/weddingVenue.jpg"
+                    src="/images/casa-de-bola.png"
                     alt="Casa De Bola - Our Wedding Venue"
                     width={600}
                     height={400}
@@ -801,9 +959,7 @@ export default function HomePage() {
                   <span className="text-white text-2xl">🌮</span>
                 </div>
                 <h3 className="text-xl font-serif text-[rgb(88,104,127)] mb-4">Restaurants</h3>
-                <p className="text-[rgb(88,104,127)] font-light">
-                  From street tacos to fine dining - our go-to spots
-                </p>
+                <p className="text-[rgb(88,104,127)] font-light">From street tacos to fine dining - our go-to spots</p>
               </div>
 
               <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl border border-[rgb(228,198,191)]/30 text-center transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
@@ -835,6 +991,7 @@ export default function HomePage() {
               >
                 Get Our Complete Mexico City Guide
               </Button>
+              {/* WhatsApp Updates Section */}
             </div>
           </div>
         </div>
@@ -873,9 +1030,7 @@ export default function HomePage() {
               <div className="space-y-6">
                 <Button
                   size="lg"
-                  disabled
-                  className="bg-gray-400 text-white px-12 py-4 rounded-full text-lg shadow-xl cursor-not-allowed opacity-50 mr-4"
-                  title="RSVP functionality coming soon with formal invitations"
+                  className="bg-gradient-to-r from-[rgb(88,104,127)] to-[rgb(125,146,175)] hover:from-[rgb(125,146,175)] hover:to-[rgb(88,104,127)] text-white px-12 py-4 rounded-full text-lg shadow-xl transform hover:scale-105 transition-all duration-300 mr-4"
                 >
                   Save Your Seat
                 </Button>
@@ -883,7 +1038,6 @@ export default function HomePage() {
                 <div className="text-[rgb(88,104,127)] font-light">or</div>
 
                 <Button
-                  onClick={handleWhatsAppJoin}
                   size="lg"
                   className="bg-green-500 hover:bg-green-600 text-white px-12 py-4 rounded-full text-lg shadow-xl transform hover:scale-105 transition-all duration-300 font-semibold"
                 >
