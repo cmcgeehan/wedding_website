@@ -293,7 +293,7 @@ export default function TravelPage() {
               <div className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[rgb(228,198,191)]/30 shadow-lg overflow-hidden">
                 <div className="relative h-64">
                   <Image
-                    src="/placeholder.svg?height=300&width=500&text=Andaz+Hyatt+Condesa"
+                    src="/images/hotels/andaz.webp"
                     alt="Andaz Hyatt Condesa"
                     width={500}
                     height={300}
@@ -347,7 +347,7 @@ export default function TravelPage() {
               <div className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[rgb(228,198,191)]/30 shadow-lg overflow-hidden">
                 <div className="relative h-64">
                   <Image
-                    src="/placeholder.svg?height=300&width=500&text=Campos+Polanco"
+                    src="/images/hotels/camposPolanco.webp"
                     alt="Campos Polanco"
                     width={500}
                     height={300}

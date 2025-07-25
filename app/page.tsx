@@ -307,7 +307,10 @@ export default function HomePage() {
                   />
                   <div className="w-px h-12 bg-white/50"></div>
                 </div>
-                <h1 className="font-serif text-8xl md:text-9xl mb-6 font-light tracking-wide">
+                <h1 className="text-8xl md:text-9xl mb-6 font-light tracking-wide" style={{ 
+                  fontFamily: 'La Bohemienne, serif',
+                  WebkitTextStroke: '2px white'
+                }}>
                   <span className="italic">Gaby</span>
                   <span className="mx-8 text-[rgb(242,230,229)]">&</span>
                   <span className="italic">Conor</span>
