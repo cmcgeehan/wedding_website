@@ -120,7 +120,7 @@ export default function HomePage() {
 
         {/* Boarding Pass */}
         <div className="relative flex items-center justify-center px-4 py-8 min-h-screen">
-          <div className="text-center text-white w-full max-w-6xl">
+          <div className="text-center text-white w-full max-w-4xl">
             <div
               className={`transform transition-all duration-2000 ${isLoaded ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
             >
@@ -157,22 +157,8 @@ export default function HomePage() {
 
                 {/* Main Body */}
                 <div className="px-4 md:px-8 py-4 md:py-6 bg-white relative">
-                  {/* Left Barcode - Hidden on mobile */}
-                  <div className="hidden md:block absolute left-4 top-4 bottom-4 w-8 flex flex-col justify-between">
-                    {[...Array(20)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="bg-[rgb(88,104,127)] rounded-full"
-                        style={{
-                          height: `${Math.random() * 3 + 1}px`,
-                          width: `${Math.random() * 2 + 1}px`,
-                        }}
-                      ></div>
-                    ))}
-                  </div>
-
                   {/* Main Content */}
-                  <div className="md:ml-16 md:mr-20">
+                  <div className="md:mr-20">
                     <div className="grid grid-cols-2 md:flex md:justify-between md:items-start mb-4 md:mb-6 gap-4 md:gap-8">
                       <div className="flex-1 min-w-0">
                         <p className="text-xs uppercase tracking-wide text-gray-500 mb-1 md:mb-2">Passenger</p>
@@ -246,19 +232,7 @@ export default function HomePage() {
                     </div>
                   </div>
 
-                  {/* Bottom Barcode - Hidden on mobile */}
-                  <div className="hidden md:block absolute bottom-4 right-4 flex space-x-px">
-                    {[...Array(15)].map((_, i) => (
-                      <div
-                        key={i}
-                        className="bg-[rgb(88,104,127)]"
-                        style={{
-                          width: `${Math.random() * 2 + 1}px`,
-                          height: "20px",
-                        }}
-                      ></div>
-                    ))}
-                  </div>
+
                 </div>
               </div>
 
