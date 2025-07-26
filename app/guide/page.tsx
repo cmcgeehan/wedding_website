@@ -11,10 +11,14 @@ import {
   Wine,
   Palette,
   Navigation,
+  Menu,
+  X,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useState } from "react"
 
 export default function GuidePage() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const restaurants = [
     {
       name: "Botanico",
@@ -425,15 +429,23 @@ export default function GuidePage() {
 
       {/* Main Navigation */}
       <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-[rgb(228,198,191)]/20">
-        <div className="container mx-auto px-6 py-4">
+        <div className="container mx-auto px-4 md:px-6 py-4">
           <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-[rgb(88,104,127)] rounded-full flex items-center justify-center">
-                <Heart className="h-5 w-5 text-white fill-current" />
+            <div className="flex items-center space-x-2 md:space-x-3">
+              <div className="w-8 h-8 md:w-10 md:h-10 bg-[rgb(88,104,127)] rounded-full flex items-center justify-center">
+                <Image
+                  src="/favicon.png"
+                  alt="Gaby & Conor Monogram"
+                  width={16}
+                  height={16}
+                  className="rounded-full md:w-6 md:h-6"
+                />
               </div>
-              <span className="font-serif text-xl text-[rgb(88,104,127)]">Our Wedding Journey</span>
+              <span className="font-serif text-lg md:text-xl text-[rgb(88,104,127)]">Gaby & Conor</span>
             </div>
-            <div className="hidden md:flex space-x-8">
+            
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex space-x-6 md:space-x-8">
               {[
                 { name: "Our Home", icon: Heart, href: "/" },
                 { name: "Travel", icon: Plane, href: "/travel" },
@@ -443,7 +455,7 @@ export default function GuidePage() {
                 <a
                   key={item.name}
                   href={item.disabled ? "#" : item.href}
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-full transition-all duration-300 group ${
+                  className={`flex items-center space-x-2 px-3 md:px-4 py-2 rounded-full transition-all duration-300 group ${
                     item.current
                       ? "bg-[rgb(88,104,127)] text-white shadow-lg"
                       : item.disabled
@@ -453,11 +465,50 @@ export default function GuidePage() {
                   onClick={item.disabled ? (e) => e.preventDefault() : undefined}
                 >
                   <item.icon className={`h-4 w-4 ${!item.disabled ? "group-hover:scale-110" : ""} transition-transform`} />
-                  <span className="font-light tracking-wide">{item.name}</span>
+                  <span className="font-light tracking-wide text-sm md:text-base">{item.name}</span>
                 </a>
               ))}
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden p-3 rounded-lg bg-[rgb(88,104,127)] text-white shadow-lg hover:bg-[rgb(125,146,175)] transition-colors duration-200 border-2 border-white/20"
+              aria-label="Toggle mobile menu"
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            </button>
           </div>
+
+          {/* Mobile Navigation Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden mt-4 pb-4 border-t border-[rgb(228,198,191)]/20 bg-white/95 backdrop-blur-md rounded-lg shadow-lg">
+              <div className="flex flex-col space-y-1 pt-4 px-2">
+                {[
+                  { name: "Our Home", icon: Heart, href: "/" },
+                  { name: "Travel", icon: Plane, href: "/travel" },
+                  { name: "CDMX Guide", icon: Navigation, href: "/guide", current: true },
+                  { name: "RSVP", icon: Users, href: "/#rsvp", disabled: true },
+                ].map((item) => (
+                  <a
+                    key={item.name}
+                    href={item.disabled ? "#" : item.href}
+                    className={`flex items-center space-x-3 px-4 py-4 rounded-lg transition-all duration-300 text-lg ${
+                      item.current
+                        ? "bg-[rgb(88,104,127)] text-white shadow-md"
+                        : item.disabled
+                        ? "text-gray-400 cursor-not-allowed opacity-50"
+                        : "text-[rgb(88,104,127)] hover:text-[rgb(125,146,175)] hover:bg-[rgb(88,104,127)]/10"
+                    }`}
+                    onClick={item.disabled ? (e) => e.preventDefault() : undefined}
+                  >
+                    <item.icon className="h-6 w-6" />
+                    <span className="font-medium tracking-wide">{item.name}</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
