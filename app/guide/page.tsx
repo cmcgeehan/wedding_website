@@ -422,7 +422,8 @@ export default function GuidePage() {
               <div className="w-px h-12 bg-white/50"></div>
             </div>
             <h1 className="text-7xl md:text-8xl mb-6 font-light tracking-wide" style={{
-              fontFamily: 'Adobe Lindsey Signature, serif'
+              fontFamily: 'Adobe Lindsey Signature, serif',
+              WebkitTextStroke: '2px white'
             }}>Mexico City Guide</h1>
             <p className="text-2xl font-light tracking-[0.2em] uppercase opacity-90 mb-4">
               Our Favorite Places & Experiences
@@ -448,7 +449,10 @@ export default function GuidePage() {
                   className="rounded-full md:w-12 md:h-12"
                 />
               </div>
-              <span className="font-serif text-lg md:text-xl text-[rgb(88,104,127)]">Gaby & Conor</span>
+              <span className="font-serif text-xl md:text-2xl text-[rgb(88,104,127)]" style={{ 
+                fontFamily: 'Adobe Lindsey Signature, serif',
+                WebkitTextStroke: '1px rgb(88,104,127)'
+              }}>Gaby & Conor</span>
             </div>
             
             {/* Desktop Navigation */}
@@ -953,7 +957,8 @@ export default function GuidePage() {
                 <MapPin className="h-6 w-6" />
               </div>
               <span className="text-4xl tracking-wide" style={{
-                fontFamily: 'Adobe Lindsey Signature, serif'
+                fontFamily: 'Adobe Lindsey Signature, serif',
+                WebkitTextStroke: '1px white'
               }}>Mexico City Guide</span>
               <div className="w-12 h-12 border-2 border-white rounded-full flex items-center justify-center">
                 <Heart className="h-6 w-6 fill-current" />

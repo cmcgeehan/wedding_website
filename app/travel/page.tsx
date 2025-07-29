@@ -45,7 +45,8 @@ export default function TravelPage() {
               <div className="w-px h-8 md:h-12 bg-white/50"></div>
             </div>
             <h1 className="text-4xl md:text-7xl lg:text-8xl mb-4 md:mb-6 font-light tracking-wide" style={{ 
-              fontFamily: 'Adobe Lindsey Signature, serif'
+              fontFamily: 'Adobe Lindsey Signature, serif',
+              WebkitTextStroke: '2px white'
             }}>Travel Guide</h1>
             <p className="text-lg md:text-2xl font-light tracking-[0.1em] md:tracking-[0.2em] uppercase opacity-90 mb-2 md:mb-4">
               Your Journey to Mexico City
@@ -71,7 +72,10 @@ export default function TravelPage() {
                   className="rounded-full md:w-12 md:h-12"
                 />
               </div>
-              <span className="font-serif text-lg md:text-xl text-[rgb(88,104,127)]">Gaby & Conor</span>
+              <span className="font-serif text-xl md:text-2xl text-[rgb(88,104,127)]" style={{ 
+                fontFamily: 'Adobe Lindsey Signature, serif',
+                WebkitTextStroke: '1px rgb(88,104,127)'
+              }}>Gaby & Conor</span>
             </div>
             
             {/* Desktop Navigation */}
@@ -346,7 +350,7 @@ export default function TravelPage() {
               <div className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[rgb(228,198,191)]/30 shadow-lg overflow-hidden">
                 <div className="relative h-48 md:h-64">
                   <Image
-                    src="/images/hotels/parque-españa.jpg"
+                    src="/images/hotels/parque-espana.jpg"
                     alt="Parque España"
                     width={500}
                     height={300}
@@ -389,7 +393,10 @@ export default function TravelPage() {
                     </ul>
                   </div>
 
-                  <Button className="w-full bg-[rgb(88,104,127)] hover:bg-[rgb(125,146,175)] text-white rounded-full py-2 md:py-3 shadow-lg transform hover:scale-105 transition-all duration-300 text-sm md:text-base">
+                  <Button 
+                    onClick={() => window.open('https://hotelparqueespana.com/', '_blank')}
+                    className="w-full bg-[rgb(88,104,127)] hover:bg-[rgb(125,146,175)] text-white rounded-full py-2 md:py-3 shadow-lg transform hover:scale-105 transition-all duration-300 text-sm md:text-base"
+                  >
                     Book at Parque España
                     <ArrowRight className="h-3 w-3 md:h-4 md:w-4 ml-2" />
                   </Button>
@@ -518,7 +525,8 @@ export default function TravelPage() {
                 <Plane className="h-4 w-4 md:h-6 md:w-6" />
               </div>
               <span className="text-2xl md:text-4xl tracking-wide" style={{
-                fontFamily: 'Adobe Lindsey Signature, serif'
+                fontFamily: 'Adobe Lindsey Signature, serif',
+                WebkitTextStroke: '1px white'
               }}>Travel Guide</span>
               <div className="w-8 h-8 md:w-12 md:h-12 border-2 border-white rounded-full flex items-center justify-center">
                 <MapPin className="h-4 w-4 md:h-6 md:w-6" />

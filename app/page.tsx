@@ -134,8 +134,9 @@ export default function HomePage() {
                     className="rounded-full shadow-lg"
                   />
                 </div>
-                <h1 className="text-2xl md:text-4xl font-light mb-2 md:mb-4" style={{ 
-                  fontFamily: 'Adobe Lindsey Signature, serif'
+                <h1 className="text-3xl md:text-5xl font-light mb-2 md:mb-4" style={{ 
+                  fontFamily: 'Adobe Lindsey Signature, serif',
+                  WebkitTextStroke: '1px white'
                 }}>Welcome to Mexico City</h1>
                 <p className="text-lg md:text-xl font-light opacity-90 mb-6 md:mb-8">
                   You&apos;ve arrived at Gaby & Conor&apos;s wedding destination
@@ -359,7 +360,10 @@ export default function HomePage() {
                   className="rounded-full md:w-12 md:h-12"
                 />
               </div>
-              <span className="font-serif text-lg md:text-xl text-[rgb(88,104,127)]">Gaby & Conor</span>
+              <span className="font-serif text-xl md:text-2xl text-[rgb(88,104,127)]" style={{ 
+                fontFamily: 'Adobe Lindsey Signature, serif',
+                WebkitTextStroke: '1px rgb(88,104,127)'
+              }}>Gaby & Conor</span>
             </div>
             
             {/* Desktop Navigation */}
@@ -736,6 +740,21 @@ export default function HomePage() {
                   </p>
                 </div>
 
+                <div className="mt-6 md:mt-8">
+                  <h3 className="text-xl md:text-2xl font-serif text-[rgb(224,241,231)] mb-4 md:mb-6 font-light">Venue Location and Recommended Neighborhoods</h3>
+                  <div className="relative">
+                    <div className="absolute -inset-2 md:-inset-4 bg-gradient-to-r from-[rgb(228,198,191)] to-[rgb(224,241,231)] rounded-2xl transform rotate-1 opacity-20"></div>
+                    <div className="relative bg-white p-3 md:p-6 rounded-2xl shadow-lg">
+                      <Image
+                        src="/images/mexico-city-map.png"
+                        alt="Mexico City Map - Venue Location"
+                        width={800}
+                        height={600}
+                        className="rounded-xl w-full h-auto"
+                      />
+                    </div>
+                  </div>
+                </div>
 
               </div>
             </div>
@@ -917,7 +936,8 @@ export default function HomePage() {
                 <Plane className="h-4 w-4 md:h-6 md:w-6" />
               </div>
               <span className="text-2xl md:text-4xl tracking-wide" style={{ 
-                fontFamily: 'Adobe Lindsey Signature, serif'
+                fontFamily: 'Adobe Lindsey Signature, serif',
+                WebkitTextStroke: '1px white'
               }}>Gaby & Conor</span>
               <div className="w-8 h-8 md:w-12 md:h-12 border-2 border-white rounded-full flex items-center justify-center">
                 <Heart className="h-4 w-4 md:h-6 md:w-6 fill-current" />
