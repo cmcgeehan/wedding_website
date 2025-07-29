@@ -44,7 +44,9 @@ export default function TravelPage() {
               <Plane className="h-6 w-6 md:h-8 md:w-8" />
               <div className="w-px h-8 md:h-12 bg-white/50"></div>
             </div>
-            <h1 className="font-serif text-4xl md:text-7xl lg:text-8xl mb-4 md:mb-6 font-light tracking-wide">Travel Guide</h1>
+            <h1 className="text-4xl md:text-7xl lg:text-8xl mb-4 md:mb-6 font-light tracking-wide" style={{ 
+              fontFamily: 'Adobe Lindsey Signature, serif'
+            }}>Travel Guide</h1>
             <p className="text-lg md:text-2xl font-light tracking-[0.1em] md:tracking-[0.2em] uppercase opacity-90 mb-2 md:mb-4">
               Your Journey to Mexico City
             </p>
@@ -60,13 +62,13 @@ export default function TravelPage() {
         <div className="container mx-auto px-4 md:px-6 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-2 md:space-x-3">
-              <div className="w-8 h-8 md:w-10 md:h-10 bg-[rgb(88,104,127)] rounded-full flex items-center justify-center">
+              <div className="flex items-center justify-center">
                 <Image
-                  src="/favicon.png"
+                  src="/monogram.svg"
                   alt="Gaby & Conor Monogram"
-                  width={16}
-                  height={16}
-                  className="rounded-full md:w-6 md:h-6"
+                  width={32}
+                  height={32}
+                  className="rounded-full md:w-12 md:h-12"
                 />
               </div>
               <span className="font-serif text-lg md:text-xl text-[rgb(88,104,127)]">Gaby & Conor</span>
@@ -75,7 +77,7 @@ export default function TravelPage() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-6 md:space-x-8">
               {[
-                { name: "Our Home", icon: Heart, href: "/" },
+                { name: "Homepage", icon: Heart, href: "/" },
                 { name: "Travel", icon: Plane, href: "/travel", current: true },
                 { name: "CDMX Guide", icon: Navigation, href: "/guide" },
                 { name: "RSVP", icon: Users, href: "/#rsvp", disabled: true },
@@ -113,7 +115,7 @@ export default function TravelPage() {
             <div className="md:hidden mt-4 pb-4 border-t border-[rgb(228,198,191)]/20 bg-white/95 backdrop-blur-md rounded-lg shadow-lg">
               <div className="flex flex-col space-y-1 pt-4 px-2">
                 {[
-                  { name: "Our Home", icon: Heart, href: "/" },
+                  { name: "Homepage", icon: Heart, href: "/" },
                   { name: "Travel", icon: Plane, href: "/travel", current: true },
                   { name: "CDMX Guide", icon: Navigation, href: "/guide" },
                   { name: "RSVP", icon: Users, href: "/#rsvp", disabled: true },
@@ -148,11 +150,11 @@ export default function TravelPage() {
             <div className="text-center mb-8 md:mb-12">
               <div className="flex justify-center mb-4 md:mb-6">
                 <Image
-                  src="/favicon.png"
+                  src="/monogram.svg"
                   alt="Wedding Logo"
-                  width={60}
-                  height={60}
-                  className="rounded-full shadow-lg md:w-20 md:h-20"
+                  width={80}
+                  height={80}
+                  className="rounded-full shadow-lg md:w-24 md:h-24"
                 />
               </div>
               <h2 className="font-serif text-3xl md:text-5xl text-[rgb(88,104,127)] mb-3 md:mb-4 font-light">Getting to Mexico City</h2>
@@ -335,11 +337,65 @@ export default function TravelPage() {
             <div className="text-center mb-8 md:mb-12">
               <h2 className="font-serif text-3xl md:text-5xl text-[rgb(88,104,127)] mb-3 md:mb-4 font-light">Where to Stay</h2>
               <p className="text-base md:text-lg text-[rgb(125,146,175)] font-light">
-                Our recommended hotels for the wedding weekend
+                To make your travel planning easier, we&apos;ve reserved room blocks at three nearby hotels. Each offers a comfortable stay, convenient access to the venue, and a special rate just for our guests.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+              {/* Parque España */}
+              <div className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[rgb(228,198,191)]/30 shadow-lg overflow-hidden">
+                <div className="relative h-48 md:h-64">
+                  <Image
+                    src="/images/hotels/parque-españa.jpg"
+                    alt="Parque España"
+                    width={500}
+                    height={300}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-3 md:top-4 right-3 md:right-4 bg-[rgb(88,104,127)] text-white px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-semibold">
+                    Recommended
+                  </div>
+                </div>
+
+                <div className="p-6 md:p-8">
+                  <div className="flex items-center justify-between mb-3 md:mb-4">
+                    <h3 className="text-lg md:text-2xl font-serif text-[rgb(88,104,127)]">Parque España</h3>
+                    <div className="flex items-center space-x-1">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="h-3 w-3 md:h-4 md:w-4 fill-yellow-400 text-yellow-400" />
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="space-y-3 md:space-y-4 mb-4 md:mb-6">
+                    <div className="flex items-center space-x-2 md:space-x-3">
+                      <MapPin className="h-4 w-4 md:h-5 md:w-5 text-[rgb(125,146,175)]" />
+                      <span className="text-[rgb(88,104,127)] font-light text-sm md:text-base">Roma Norte Neighborhood</span>
+                    </div>
+
+                    <div className="flex items-center space-x-2 md:space-x-3">
+                      <Clock className="h-4 w-4 md:h-5 md:w-5 text-[rgb(125,146,175)]" />
+                      <span className="text-[rgb(88,104,127)] font-light text-sm md:text-base">10 minutes to venue</span>
+                    </div>
+                  </div>
+
+                  <div className="bg-[rgb(242,230,229)] p-3 md:p-4 rounded-xl mb-4 md:mb-6">
+                    <h4 className="font-semibold text-[rgb(88,104,127)] mb-2 text-sm md:text-base">Why We Love It:</h4>
+                    <ul className="text-[rgb(88,104,127)] font-light text-xs md:text-sm space-y-1">
+                      <li>• Historic charm in vibrant Roma Norte</li>
+                      <li>• Walking distance to trendy cafes & shops</li>
+                      <li>• Beautiful courtyard and garden</li>
+                      <li>• Authentic local neighborhood feel</li>
+                    </ul>
+                  </div>
+
+                  <Button className="w-full bg-[rgb(88,104,127)] hover:bg-[rgb(125,146,175)] text-white rounded-full py-2 md:py-3 shadow-lg transform hover:scale-105 transition-all duration-300 text-sm md:text-base">
+                    Book at Parque España
+                    <ArrowRight className="h-3 w-3 md:h-4 md:w-4 ml-2" />
+                  </Button>
+                </div>
+              </div>
+
               {/* Andaz Hyatt Condesa */}
               <div className="bg-white/60 backdrop-blur-sm rounded-2xl border border-[rgb(228,198,191)]/30 shadow-lg overflow-hidden">
                 <div className="relative h-48 md:h-64">
@@ -427,7 +483,7 @@ export default function TravelPage() {
 
                     <div className="flex items-center space-x-2 md:space-x-3">
                       <Clock className="h-4 w-4 md:h-5 md:w-5 text-[rgb(125,146,175)]" />
-                      <span className="text-[rgb(88,104,127)] font-light text-sm md:text-base">20 minutes to venue</span>
+                      <span className="text-[rgb(88,104,127)] font-light text-sm md:text-base">8 minutes to venue</span>
                     </div>
                   </div>
 
@@ -438,6 +494,7 @@ export default function TravelPage() {
                       <li>• Upscale Polanco location</li>
                       <li>• Close to museums & shopping</li>
                       <li>• Sophisticated design & atmosphere</li>
+                      <li>• Includes breakfast and free transportation to nearby activities daily</li>
                     </ul>
                   </div>
 
@@ -460,7 +517,9 @@ export default function TravelPage() {
               <div className="w-8 h-8 md:w-12 md:h-12 border-2 border-white rounded-full flex items-center justify-center">
                 <Plane className="h-4 w-4 md:h-6 md:w-6" />
               </div>
-              <span className="font-serif text-2xl md:text-4xl tracking-wide">Travel Guide</span>
+              <span className="text-2xl md:text-4xl tracking-wide" style={{
+                fontFamily: 'Adobe Lindsey Signature, serif'
+              }}>Travel Guide</span>
               <div className="w-8 h-8 md:w-12 md:h-12 border-2 border-white rounded-full flex items-center justify-center">
                 <MapPin className="h-4 w-4 md:h-6 md:w-6" />
               </div>
@@ -470,7 +529,7 @@ export default function TravelPage() {
           </div>
 
           <div className="text-xs md:text-sm text-[rgb(224,241,231)] uppercase tracking-[0.2em] font-light">
-            Safe Travels • See You Soon • ¡Buen Viaje!
+            Safe Travels • ¡Buen Viaje!
           </div>
         </div>
       </footer>

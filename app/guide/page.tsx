@@ -19,6 +19,11 @@ import { useState } from "react"
 
 export default function GuidePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
+  const handleWhatsAppJoin = () => {
+    const whatsappLink = "https://chat.whatsapp.com/EBLYskiMMT55VELRypOFyg"
+    window.open(whatsappLink, '_blank')
+  }
   const restaurants = [
     {
       name: "Botanico",
@@ -416,7 +421,9 @@ export default function GuidePage() {
               <MapPin className="h-8 w-8" />
               <div className="w-px h-12 bg-white/50"></div>
             </div>
-            <h1 className="font-serif text-7xl md:text-8xl mb-6 font-light tracking-wide">Mexico City Guide</h1>
+            <h1 className="text-7xl md:text-8xl mb-6 font-light tracking-wide" style={{
+              fontFamily: 'Adobe Lindsey Signature, serif'
+            }}>Mexico City Guide</h1>
             <p className="text-2xl font-light tracking-[0.2em] uppercase opacity-90 mb-4">
               Our Favorite Places & Experiences
             </p>
@@ -432,13 +439,13 @@ export default function GuidePage() {
         <div className="container mx-auto px-4 md:px-6 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-2 md:space-x-3">
-              <div className="w-8 h-8 md:w-10 md:h-10 bg-[rgb(88,104,127)] rounded-full flex items-center justify-center">
+              <div className="flex items-center justify-center">
                 <Image
-                  src="/favicon.png"
+                  src="/monogram.svg"
                   alt="Gaby & Conor Monogram"
-                  width={16}
-                  height={16}
-                  className="rounded-full md:w-6 md:h-6"
+                  width={32}
+                  height={32}
+                  className="rounded-full md:w-12 md:h-12"
                 />
               </div>
               <span className="font-serif text-lg md:text-xl text-[rgb(88,104,127)]">Gaby & Conor</span>
@@ -447,7 +454,7 @@ export default function GuidePage() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-6 md:space-x-8">
               {[
-                { name: "Our Home", icon: Heart, href: "/" },
+                { name: "Homepage", icon: Heart, href: "/" },
                 { name: "Travel", icon: Plane, href: "/travel" },
                 { name: "CDMX Guide", icon: Navigation, href: "/guide", current: true },
                 { name: "RSVP", icon: Users, href: "/#rsvp", disabled: true },
@@ -485,7 +492,7 @@ export default function GuidePage() {
             <div className="md:hidden mt-4 pb-4 border-t border-[rgb(228,198,191)]/20 bg-white/95 backdrop-blur-md rounded-lg shadow-lg">
               <div className="flex flex-col space-y-1 pt-4 px-2">
                 {[
-                  { name: "Our Home", icon: Heart, href: "/" },
+                  { name: "Homepage", icon: Heart, href: "/" },
                   { name: "Travel", icon: Plane, href: "/travel" },
                   { name: "CDMX Guide", icon: Navigation, href: "/guide", current: true },
                   { name: "RSVP", icon: Users, href: "/#rsvp", disabled: true },
@@ -517,7 +524,7 @@ export default function GuidePage() {
         <div className="container mx-auto max-w-7xl space-y-24">
           {/* Introduction */}
           <section className="text-center max-w-4xl mx-auto">
-            <h2 className="font-serif text-5xl text-[rgb(88,104,127)] mb-8 font-light">Welcome to Our City</h2>
+                          <h2 className="text-5xl text-[rgb(88,104,127)] mb-8 font-light">Welcome to Our City</h2>
             <p className="text-lg text-[rgb(88,104,127)] font-light leading-relaxed mb-8">
               Mexico City has been our home for the past few years, and we&apos;ve fallen in love with its incredible energy,
               rich culture, and amazing food scene. We&apos;re excited to share our favorite spots with you so you can
@@ -531,81 +538,7 @@ export default function GuidePage() {
             </div>
           </section>
 
-          {/* Weekend Itinerary */}
-          <section className="space-y-12 py-16 px-6 bg-gradient-to-r from-[rgb(242,230,229)] to-[rgb(125,146,175)] -mx-6 rounded-3xl">
-            <div className="text-center">
-              <h2 className="font-serif text-5xl text-[rgb(88,104,127)] mb-4 font-light">Easter Weekend Itinerary</h2>
-              <p className="text-lg text-[rgb(125,146,175)] font-light">
-                Our suggested schedule for the perfect long weekend
-              </p>
-            </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-[rgb(228,198,191)]/30">
-                <div className="text-center mb-4">
-                  <div className="w-12 h-12 bg-[rgb(88,104,127)] rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-white font-bold">WED</span>
-                  </div>
-                  <h4 className="text-lg font-serif text-[rgb(88,104,127)] mb-2">April 1st</h4>
-                  <p className="text-sm text-[rgb(88,104,127)] uppercase tracking-wide">Arrival Day</p>
-                </div>
-                <ul className="text-sm text-[rgb(88,104,127)] space-y-2">
-                  <li>• Arrive & check into hotel</li>
-                  <li>• Welcome drinks (location TBA)</li>
-                  <li>• Explore Roma Norte neighborhood</li>
-                  <li>• Dinner at local favorites</li>
-                </ul>
-              </div>
-
-              <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-[rgb(228,198,191)]/30">
-                <div className="text-center mb-4">
-                  <div className="w-12 h-12 bg-[rgb(125,146,175)] rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-white font-bold">THU</span>
-                  </div>
-                  <h4 className="text-lg font-serif text-[rgb(88,104,127)] mb-2">April 2nd</h4>
-                  <p className="text-sm text-[rgb(88,104,127)] uppercase tracking-wide">Explore Day</p>
-                </div>
-                <ul className="text-sm text-[rgb(88,104,127)] space-y-2">
-                  <li>• Visit Frida Kahlo Museum</li>
-                  <li>• Lunch in Coyoacán</li>
-                  <li>• Afternoon in Xochimilco</li>
-                  <li>• Pre-wedding celebration</li>
-                </ul>
-              </div>
-
-              <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-[rgb(228,198,191)]/30 ring-2 ring-[rgb(228,198,191)]">
-                <div className="text-center mb-4">
-                  <div className="w-12 h-12 bg-[rgb(228,198,191)] rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Heart className="h-6 w-6 text-[rgb(88,104,127)] fill-current" />
-                  </div>
-                  <h4 className="text-lg font-serif text-[rgb(88,104,127)] mb-2">April 3rd</h4>
-                  <p className="text-sm text-[rgb(88,104,127)] uppercase tracking-wide font-semibold">Wedding Day</p>
-                </div>
-                <ul className="text-sm text-[rgb(88,104,127)] space-y-2">
-                  <li>• Morning at leisure</li>
-                  <li>• Wedding ceremony</li>
-                  <li>• Reception & celebration</li>
-                  <li>• Dancing until late!</li>
-                </ul>
-              </div>
-
-              <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-[rgb(228,198,191)]/30">
-                <div className="text-center mb-4">
-                  <div className="w-12 h-12 bg-[rgb(125,146,175)] rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-white font-bold">SAT</span>
-                  </div>
-                  <h4 className="text-lg font-serif text-[rgb(88,104,127)] mb-2">April 4th</h4>
-                  <p className="text-sm text-[rgb(88,104,127)] uppercase tracking-wide">Recovery Day</p>
-                </div>
-                <ul className="text-sm text-[rgb(88,104,127)] space-y-2">
-                  <li>• Brunch together</li>
-                  <li>• Visit Chapultepec Park</li>
-                  <li>• Anthropology Museum</li>
-                  <li>• Farewell dinner</li>
-                </ul>
-              </div>
-            </div>
-          </section>
 
           {/* Restaurants Section */}
           <section className="space-y-12 py-16 px-6 bg-gradient-to-r from-[rgb(125,146,175)] to-[rgb(228,198,191)] -mx-6 rounded-3xl">
@@ -615,7 +548,7 @@ export default function GuidePage() {
               </div>
               <h2 className="font-serif text-5xl text-white mb-4 font-light">Where to Eat</h2>
               <p className="text-lg text-white/80 font-light mb-8">
-                From street tacos to world-class fine dining, these are our go-to spots
+                CDMX is a city made for eating—and we&apos;ve done our fair share of research to bring you this list. Below are some of our go-to spots for everything from casual bites to special dinners. We&apos;ve marked our absolute favorites with a ❤️
               </p>
             </div>
 
@@ -1001,9 +934,10 @@ export default function GuidePage() {
             </p>
             <Button
               size="lg"
-              className="bg-[rgb(88,104,127)] hover:bg-[rgb(125,146,175)] text-white px-12 py-4 rounded-full text-lg shadow-xl transform hover:scale-105 transition-all duration-300 font-semibold"
+              onClick={handleWhatsAppJoin}
+              className="bg-[rgb(88,104,127)] hover:bg-[rgb(125,146,175)] text-white px-6 md:px-12 py-3 md:py-4 rounded-full text-base md:text-lg shadow-xl transform hover:scale-105 transition-all duration-300 font-semibold"
             >
-              <span className="mr-3 text-xl">📱</span>
+              <span className="mr-2 md:mr-3 text-lg md:text-xl">📱</span>
               Join Our WhatsApp Group
             </Button>
           </section>
@@ -1018,7 +952,9 @@ export default function GuidePage() {
               <div className="w-12 h-12 border-2 border-white rounded-full flex items-center justify-center">
                 <MapPin className="h-6 w-6" />
               </div>
-              <span className="font-serif text-4xl tracking-wide">Mexico City Guide</span>
+              <span className="text-4xl tracking-wide" style={{
+                fontFamily: 'Adobe Lindsey Signature, serif'
+              }}>Mexico City Guide</span>
               <div className="w-12 h-12 border-2 border-white rounded-full flex items-center justify-center">
                 <Heart className="h-6 w-6 fill-current" />
               </div>

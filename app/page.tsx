@@ -127,14 +127,16 @@ export default function HomePage() {
               <div className="mb-6 md:mb-8">
                 <div className="flex justify-center mb-4 md:mb-6">
                   <Image
-                    src="/favicon.png"
+                    src="/monogram.svg"
                     alt="Wedding Logo"
-                    width={60}
-                    height={60}
+                    width={80}
+                    height={80}
                     className="rounded-full shadow-lg"
                   />
                 </div>
-                <h1 className="text-2xl md:text-4xl font-serif mb-2 md:mb-4">Welcome to Mexico City</h1>
+                <h1 className="text-2xl md:text-4xl font-light mb-2 md:mb-4" style={{ 
+                  fontFamily: 'Adobe Lindsey Signature, serif'
+                }}>Welcome to Mexico City</h1>
                 <p className="text-lg md:text-xl font-light opacity-90 mb-6 md:mb-8">
                   You&apos;ve arrived at Gaby & Conor&apos;s wedding destination
                 </p>
@@ -277,16 +279,16 @@ export default function HomePage() {
                 <div className="inline-flex items-center space-x-2 md:space-x-4 mb-6 md:mb-8">
                   <div className="w-px h-8 md:h-12 bg-white/50"></div>
                   <Image
-                    src="/favicon.png"
+                    src="/monogram.svg"
                     alt="Wedding Logo"
-                    width={24}
-                    height={24}
-                    className="rounded-full shadow-lg md:w-8 md:h-8"
+                    width={40}
+                    height={40}
+                    className="rounded-full shadow-lg md:w-12 md:h-12"
                   />
                   <div className="w-px h-8 md:h-12 bg-white/50"></div>
                 </div>
                 <h1 className="text-4xl md:text-8xl lg:text-9xl mb-4 md:mb-6 font-light tracking-wide" style={{ 
-                  fontFamily: 'La Bohemienne, serif',
+                  fontFamily: 'Adobe Lindsey Signature, serif',
                   WebkitTextStroke: '2px white'
                 }}>
                   <span className="italic">Gaby</span>
@@ -348,13 +350,13 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-6 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-2 md:space-x-3">
-              <div className="w-8 h-8 md:w-10 md:h-10 bg-[rgb(88,104,127)] rounded-full flex items-center justify-center">
+              <div className="flex items-center justify-center">
                 <Image
-                  src="/favicon.png"
+                  src="/monogram.svg"
                   alt="Gaby & Conor Monogram"
-                  width={16}
-                  height={16}
-                  className="rounded-full md:w-6 md:h-6"
+                  width={32}
+                  height={32}
+                  className="rounded-full md:w-12 md:h-12"
                 />
               </div>
               <span className="font-serif text-lg md:text-xl text-[rgb(88,104,127)]">Gaby & Conor</span>
@@ -363,7 +365,7 @@ export default function HomePage() {
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-6 md:space-x-8">
               {[
-                { name: "Our Home", icon: Heart, href: "#our-story", current: true },
+                { name: "Homepage", icon: Heart, href: "#our-story", current: true },
                 { name: "Travel", icon: Plane, href: "/travel" },
                 { name: "CDMX Guide", icon: Navigation, href: "/guide" },
                 { name: "RSVP", icon: Users, href: "#rsvp", disabled: true },
@@ -401,7 +403,7 @@ export default function HomePage() {
             <div className="md:hidden mt-4 pb-4 border-t border-[rgb(228,198,191)]/20 bg-white/95 backdrop-blur-md rounded-lg shadow-lg">
               <div className="flex flex-col space-y-1 pt-4 px-2">
                 {[
-                  { name: "Our Home", icon: Heart, href: "#our-story", current: true },
+                  { name: "Homepage", icon: Heart, href: "#our-story", current: true },
                   { name: "Travel", icon: Plane, href: "/travel" },
                   { name: "CDMX Guide", icon: Navigation, href: "/guide" },
                   { name: "RSVP", icon: Users, href: "#rsvp", disabled: true },
@@ -440,18 +442,10 @@ export default function HomePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
               <div className="space-y-6 md:space-y-8 text-left">
                 <div className="bg-white/60 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-[rgb(228,198,191)]/30">
-                  <h3 className="text-xl md:text-2xl font-serif text-[rgb(88,104,127)] mb-3 md:mb-4">Our Mexico City Home</h3>
                   <p className="text-[rgb(88,104,127)] leading-relaxed font-light text-sm md:text-base">
                     We&apos;ve called Mexico City home for the past few years, and now we can&apos;t wait to share this incredible
                     city with all of you. From the vibrant culture to the amazing food, it&apos;s become such a special place
-                    for us.
-                  </p>
-                </div>
-
-                <div className="bg-white/60 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-[rgb(228,198,191)]/30">
-                  <h3 className="text-xl md:text-2xl font-serif text-[rgb(88,104,127)] mb-3 md:mb-4">Extended Weekend</h3>
-                  <p className="text-[rgb(88,104,127)] leading-relaxed font-light text-sm md:text-base">
-                    Join us for an extended weekend full of love, tequila, and unforgettable moments as we celebrate our
+                    for us. Join us for an extended weekend full of love, tequila, and unforgettable moments as we celebrate our
                     biggest adventure yet. We&apos;ve planned something truly special for everyone.
                   </p>
                 </div>
@@ -731,19 +725,14 @@ export default function HomePage() {
 
               <div className="space-y-6 md:space-y-8 text-white">
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-serif mb-4 md:mb-6 font-light">Architectural Marvel</h3>
                   <p className="text-[rgb(224,241,231)] leading-relaxed font-light text-base md:text-lg">
-                    This magnificent estate, designed by a renowned architect, stands as a testament to Mexican
-                    architectural excellence. The classical stonework and ornate details create an atmosphere of
-                    timeless elegance.
+                    Tucked away in one of Mexico City&apos;s most historic neighborhoods, our wedding venue is a beautifully preserved 16th-century mansion that instantly stole our hearts. From its cobblestone paths to its lush gardens and elegant salons, it felt like stepping into a different time.
                   </p>
                 </div>
 
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-serif mb-4 md:mb-6 font-light">Garden Paradise</h3>
                   <p className="text-[rgb(224,241,231)] leading-relaxed font-light text-base md:text-lg">
-                    Now serving as a museum, the sprawling gardens are adorned with lush tropical vegetation, creating
-                    an intimate paradise perfect for our wedding celebration.
+                    It&apos;s a setting that has witnessed centuries of memories—and now, it will hold one of our most special ones, too. We can&apos;t wait for you to experience the magic with us and discover the place that made us fall in love all over again.
                   </p>
                 </div>
 
@@ -840,44 +829,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Quick Links */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-              <div className="bg-white/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-[rgb(228,198,191)]/30 text-center transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
-                <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r from-[rgb(88,104,127)] to-[rgb(125,146,175)] rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
-                  <span className="text-white text-xl md:text-2xl">🍹</span>
-                </div>
-                <h3 className="text-lg md:text-xl font-serif text-[rgb(88,104,127)] mb-3 md:mb-4">Best Bars</h3>
-                <p className="text-[rgb(88,104,127)] font-light text-sm md:text-base">
-                  Our favorite spots for mezcal, cocktails, and late-night fun
-                </p>
-              </div>
 
-              <div className="bg-white/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-[rgb(228,198,191)]/30 text-center transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
-                <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r from-[rgb(88,104,127)] to-[rgb(125,146,175)] rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
-                  <span className="text-white text-xl md:text-2xl">🌮</span>
-                </div>
-                <h3 className="text-lg md:text-xl font-serif text-[rgb(88,104,127)] mb-3 md:mb-4">Restaurants</h3>
-                <p className="text-[rgb(88,104,127)] font-light text-sm md:text-base">From street tacos to fine dining - our go-to spots</p>
-              </div>
-
-              <div className="bg-white/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-[rgb(228,198,191)]/30 text-center transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
-                <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r from-[rgb(88,104,127)] to-[rgb(125,146,175)] rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
-                  <span className="text-white text-xl md:text-2xl">🎨</span>
-                </div>
-                <h3 className="text-lg md:text-xl font-serif text-[rgb(88,104,127)] mb-3 md:mb-4">Museums</h3>
-                <p className="text-[rgb(88,104,127)] font-light text-sm md:text-base">
-                  Art, history, and culture - the best Mexico City has to offer
-                </p>
-              </div>
-
-              <div className="bg-white/80 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-[rgb(228,198,191)]/30 text-center transform hover:scale-105 transition-all duration-300 hover:shadow-xl">
-                <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-r from-[rgb(88,104,127)] to-[rgb(125,146,175)] rounded-full flex items-center justify-center mx-auto mb-4 md:mb-6">
-                  <span className="text-white text-xl md:text-2xl">✨</span>
-                </div>
-                <h3 className="text-lg md:text-xl font-serif text-[rgb(88,104,127)] mb-3 md:mb-4">Experiences</h3>
-                <p className="text-[rgb(88,104,127)] font-light text-sm md:text-base">Unique activities and hidden gems we love</p>
-              </div>
-            </div>
 
             <div className="text-center mt-8 md:mt-12">
               <p className="text-[rgb(88,104,127)] font-light mb-4 md:mb-6 text-sm md:text-base">
@@ -964,7 +916,9 @@ export default function HomePage() {
               <div className="w-8 h-8 md:w-12 md:h-12 border-2 border-white rounded-full flex items-center justify-center">
                 <Plane className="h-4 w-4 md:h-6 md:w-6" />
               </div>
-              <span className="font-serif text-2xl md:text-4xl tracking-wide">Gaby & Conor</span>
+              <span className="text-2xl md:text-4xl tracking-wide" style={{ 
+                fontFamily: 'Adobe Lindsey Signature, serif'
+              }}>Gaby & Conor</span>
               <div className="w-8 h-8 md:w-12 md:h-12 border-2 border-white rounded-full flex items-center justify-center">
                 <Heart className="h-4 w-4 md:h-6 md:w-6 fill-current" />
               </div>
